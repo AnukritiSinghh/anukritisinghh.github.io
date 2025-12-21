@@ -1,0 +1,112 @@
+body {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+name {
+  font-size: 2em;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+heading {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+papertitle {
+  font-size: 1.1em;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+a {
+  color: #3498db;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.highlight {
+  background-color: #f4ffeb;
+}
+
+.conference-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 3px;
+  font-size: 0.85em;
+  font-weight: 500;
+  margin-right: 5px;
+}
+
+.badge-preprint {
+  background-color: #e8e8e8;
+  color: #333;
+}
+
+.badge-rss {
+  background-color: #2c3e50;
+  color: white;
+}
+
+.badge-iclr {
+  background-color: #4a90e2;
+  color: white;
+}
+
+.badge-icra {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.badge-corl {
+  background-color: #27ae60;
+  color: white;
+}
+
+.badge-iros {
+  background-color: #f39c12;
+  color: white;
+}
+
+.badge-ral {
+  background-color: #9b59b6;
+  color: white;
+}
+
+.badge-case {
+  background-color: #16a085;
+  color: white;
+}
+
+.hoverZoomLink {
+  transition: transform 0.2s;
+}
+
+.hoverZoomLink:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+  
+  name {
+    font-size: 1.5em;
+  }
+  
+  table {
+    font-size: 14px;
+  }
+}
+
