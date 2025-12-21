@@ -36,11 +36,15 @@ a:hover {
 }
 
 .highlight {
-  background-color: #fffef5 !important;
+  background-color: #e6f2ff !important;
 }
 
 .highlight td {
-  background-color: #fffef5 !important;
+  background-color: #e6f2ff !important;
+}
+
+.highlight papertitle {
+  color: #0066cc !important;
 }
 
 .conference-badge {
