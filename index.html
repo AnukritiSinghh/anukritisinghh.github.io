@@ -1,236 +1,316 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <title>Anukriti Singh</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anukriti Singh | Ph.D. Student @ UMD</title>
   <meta name="author" content="Anukriti Singh">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="stylesheet.css">
+  <meta name="description" content="Personal website of Anukriti Singh, Ph.D. Student in Computer Science at UMD RAAS Lab focusing on Perception, Robot Learning, and Foundation Models.">
+  <link rel="stylesheet" href="stylesheet.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>">
-  <style>
-    .highlight {
-      background-color: #e6f2ff !important;
-  }
-    .highlight td {
-      background-color: #e6f2ff !important;
-    }
-    .highlight papertitle {
-      color: #0066cc !important;
-}
-  </style>
 </head>
 
 <body>
-  <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-    <tbody>
-      <tr style="padding:0px">
-        <td style="padding:0px">
-          <!-- Profile Section -->
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-            <tbody>
-              <tr style="padding:0px">
-                <td style="padding:2.5%;width:63%;vertical-align:top">
-                  <p style="text-align:center">
-                    <name>Anukriti Singh</name>
-                  </p>
-                  <p>I am a Ph.D. student in Computer Science at the University of Maryland, College Park, advised by <a href="https://raaslab.org/" target="_blank" rel="noopener">Prof. Pratap Tokekar</a> in the RAAS Lab. My research sits at the intersection of perception and robot learning, with a focus on building manipulation and navigation systems that generalize in the real world. I'm especially interested in learning from rich supervision—video, language, demonstrations, and preference feedback and using foundation-scale vision models to make policies and rewards more data-efficient and robust.</p>
-                  <p>I previously completed my M.Eng. in Robotics at UMD and have interned at <a href="https://www.bell-labs.com/">Nokia Bell Labs</a> and <a href="https://picsart.com/">PicsArt AI Research</a>.</p>
-                  <p>Please feel free to reach out!</p>
-                  <p style="text-align:center">
-                    <a href="mailto:anukriti@terpmail.umd.edu">anukriti@terpmail.umd.edu</a> &nbsp/&nbsp
-                    <a href="https://drive.google.com/file/d/10SaB9mI71bbce1WUvN5jx-Ygf__GOP1S/view?usp=sharing">CV</a> &nbsp/&nbsp
-                    <a href="https://github.com/anukritisinghh/">Github</a> &nbsp/&nbsp
-                    <a href="https://scholar.google.com/citations?user=G4gza-gAAAAJ&hl=en">Google Scholar</a> &nbsp/&nbsp
-                    <a href="https://twitter.com/singhanukriti">X</a> &nbsp/&nbsp
-                    <a href="https://www.linkedin.com/in/anukriti-singh-07583b142/">LinkedIn</a>
-                  </p>
-                </td>
-                <td style="padding:2.5%;width:40%;max-width:40%;vertical-align:top;padding-top:4%">
-                  <a href="authors/admin/1730648801032.jpg"><img style="width:100%;max-width:100%" alt="profile photo" src="authors/admin/1730648801032.jpg" class="hoverZoomLink"></a>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+  <div class="container">
+    
+    <!-- Top Navigation Bar -->
+    <nav class="top-nav">
+      <a href="#" class="brand-logo">
+        <span class="dot"></span> Anukriti Singh
+      </a>
+      <div class="nav-links">
+        <a href="#about" class="nav-link">About</a>
+        <a href="#research" class="nav-link">Research</a>
+        <a href="#news" class="nav-link">News</a>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark/light mode">
+          <span id="theme-icon">🌙</span>
+          <span id="theme-text">Dark</span>
+        </button>
+      </div>
+    </nav>
 
-          <!-- Research Section -->
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-            <tbody>
-              <tr>
-                <td style="padding:20px;width:100%;vertical-align:middle">
-                  <heading>Research</heading>
-                  <br><br>Papers are sorted by recency.
-                </td>
-              </tr>
-            </tbody>
-          </table>
+    <!-- Main Content -->
+    <main>
+      
+      <!-- Profile Section -->
+      <section id="about" class="profile-section">
+        <div class="profile-info">
+          <h1 class="profile-name">Anukriti Singh</h1>
+          
+          <div class="status-badge">
+            <span class="status-indicator"></span>
+            Ph.D. Student in CS @ UMD College Park
+          </div>
 
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-            <tbody>
-              <!-- Afford2Act -->
-              <tr class="highlight">
-                <td style="padding:20px;width:25%;vertical-align:middle;text-align:center">
-                  <img src="/files/afford2act_fast.gif" alt="Afford2Act" width="280" style="border-radius:4px;">
-                </td>
-                <td width="75%" valign="middle">
-                  <papertitle>Afford2Act: Affordance-Guided Automatic Keypoint Selection for Generalizable and Lightweight Robotic Manipulation</papertitle>
-                  <br>
-                  <strong>Anukriti Singh</strong>, K. Torshizi, K. Habib, K. Yu, R. Gao, P. Tokekar
-                  <br>
-                  <em>In Submission</em>
-                </td>
-              </tr>
+          <div class="bio-text">
+            <p>I am a Ph.D. student in Computer Science at the University of Maryland, College Park, advised by <a href="https://raaslab.org/" target="_blank" rel="noopener">Prof. Pratap Tokekar</a> in the RAAS Lab. My research sits at the intersection of perception and robot learning, with a focus on building manipulation and navigation systems that generalize in the real world. I'm especially interested in learning from rich supervision—video, language, demonstrations, and preference feedback and using foundation-scale vision models to make policies and rewards more data-efficient and robust.</p>
+            <p>I previously completed my M.Eng. in Robotics at UMD and have interned at <a href="https://www.bell-labs.com/" target="_blank" rel="noopener">Nokia Bell Labs</a> and <a href="https://picsart.com/" target="_blank" rel="noopener">PicsArt AI Research</a>.</p>
+            <p>Please feel free to reach out!</p>
+          </div>
 
-              <!-- VARP -->
-              <tr class="highlight">
-                <td style="padding:20px;width:25%;vertical-align:middle;text-align:center">
-                  <img src="/files/varp.gif" alt="VARP" width="280" style="border-radius:4px;">
-                </td>
-                <td width="75%" valign="middle">
-                  <papertitle>VARP: Reinforcement Learning from Vision-Language Model Feedback with Agent Regularized Preferences</papertitle>
-                  <br>
-                  <strong>Anukriti Singh</strong>*, A. Bhaskar*, P. Yu, S. Chakraborty, R. Dasyam, A. Bedi, P. Tokekar
-                  <br>
-                  <em>In Submission</em>
-                </td>
-              </tr>
+          <!-- Social / Contact Links -->
+          <div class="social-links">
+            <a href="mailto:anukriti@terpmail.umd.edu" class="social-chip">
+              <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+              Email
+            </a>
+            <a href="https://drive.google.com/file/d/10SaB9mI71bbce1WUvN5jx-Ygf__GOP1S/view?usp=sharing" target="_blank" rel="noopener" class="social-chip">
+              <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+              CV
+            </a>
+            <a href="https://github.com/anukritisinghh/" target="_blank" rel="noopener" class="social-chip">
+              <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+              GitHub
+            </a>
+            <a href="https://scholar.google.com/citations?user=G4gza-gAAAAJ&hl=en" target="_blank" rel="noopener" class="social-chip">
+              <svg viewBox="0 0 24 24"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l12 9.5 9-7.125V18h3V9.5L12 0zm0 4.24l5.38 4.26L12 12.76 6.62 8.5 12 4.24z"/></svg>
+              Google Scholar
+            </a>
+            <a href="https://twitter.com/singhanukriti" target="_blank" rel="noopener" class="social-chip">
+              <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              X
+            </a>
+            <a href="https://www.linkedin.com/in/anukriti-singh-07583b142/" target="_blank" rel="noopener" class="social-chip">
+              <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.75a1.45 1.45 0 1 0 0 2.9 1.45 1.45 0 0 0 0-2.9z"/></svg>
+              LinkedIn
+            </a>
+          </div>
+        </div>
 
-              <!-- Sketch-to-Skill -->
-              <tr class="highlight">
-                <td style="padding:20px;width:25%;vertical-align:middle;text-align:center">
-                  <img src="/files/sketch2skill.gif" alt="Sketch-to-Skill" width="280" style="border-radius:4px;">
-                </td>
-                <td width="75%" valign="middle">
-                  <a href="https://openreview.net/pdf?id=ww7JqIf494">
-                    <papertitle>Sketch-to-Skill: Bootstrapping Robot Learning with Human Drawn Trajectory Sketches</papertitle>
-                  </a>
-                  <br>
-                  P. Yu*, A. Bhaskar*, <strong>Anukriti Singh</strong>, Z. Mahammad, P. Tokekar
-                  <br>
-                  <em>RSS 2025</em>
-                  <br>
-                  <a href="https://openreview.net/pdf?id=ww7JqIf494">PDF</a>
-                </td>
-              </tr>
+        <div class="profile-photo-wrapper">
+          <img src="authors/admin/1730648801032.jpg" alt="Anukriti Singh headshot" class="profile-photo">
+        </div>
+      </section>
 
-              <!-- Navigation -->
-            <tr>
-                <td style="padding:20px;width:25%;vertical-align:middle;text-align:center">
-                  <img src="/files/navigation.gif" alt="Navigation" width="280" style="border-radius:4px;">
-              </td>
-                <td width="75%" valign="middle">
-                  <a href="https://arxiv.org/pdf/2310.07021">
-                    <papertitle>Pre-Trained Masked Image Model for Mobile Robot Navigation</papertitle>
-                  </a>
-                  <br>
-                  V. D. Sharma, <strong>Anukriti Singh</strong>, P. Tokekar
-                  <br>
-                  <em>ICRA 2024</em>
-                  <br>
-                  <a href="https://arxiv.org/pdf/2310.07021">PDF</a>
-              </td>
-            </tr>
+      <!-- Research Section -->
+      <section id="research" class="section">
+        <div class="section-header">
+          <h2 class="section-title">Research</h2>
+          <span class="section-subtitle">Papers sorted by recency</span>
+        </div>
 
-              <!-- FLIP-TD -->
-            <tr>
-                <td style="padding:20px;width:25%;vertical-align:middle;text-align:center">
-                  <img src="files/fig_1_1.png" alt="FLIP-TD" width="280">
-              </td>
-                <td width="75%" valign="middle">
-                  <a href="https://openreview.net/forum?id=7c0WHyETaHC">
-                    <papertitle>FLIP-TD: Free Lunch Inpainting on Top-Down Images for Robotic Tasks</papertitle>
-                  </a>
-                  <br>
-                  <strong>Anukriti Singh</strong>*, V. D. Sharma*, P. Tokekar
-                  <br>
-                  <em>ICRA Workshop 2023</em>
-                  <br>
-                  <a href="https://openreview.net/forum?id=7c0WHyETaHC">PDF</a>
-              </td>
-            </tr>
+        <div class="pub-list">
+          
+          <!-- Afford2Act -->
+          <article class="pub-card highlight">
+            <div class="pub-media">
+              <img src="files/afford2act_fast.gif" alt="Afford2Act animation preview" loading="lazy">
+            </div>
+            <div class="pub-details">
+              <h3 class="pub-title">Afford2Act: Affordance-Guided Automatic Keypoint Selection for Generalizable and Lightweight Robotic Manipulation</h3>
+              <div class="pub-authors">
+                <span class="author-me">Anukriti Singh</span>, K. Torshizi, K. Habib, K. Yu, R. Gao, P. Tokekar
+              </div>
+              <div class="pub-venue">
+                <span class="tag-badge">★ Highlighted</span>
+                <em>In Submission</em>
+              </div>
+            </div>
+          </article>
 
-              <!-- SeMask -->
-            <tr>
-                <td style="padding:20px;width:25%;vertical-align:middle;text-align:center">
-                  <img src="files/semask.png" alt="SeMask" width="280">
-              </td>
-                <td width="75%" valign="middle">
-                  <a href="https://arxiv.org/abs/2112.12782">
-                    <papertitle>SeMask: Semantically Masked Transformers for Semantic Segmentation</papertitle>
-                  </a>
-                  <br>
-                  J. Jain, <strong>Anukriti Singh</strong>, N. Orlov, Z. Huang, J. Li, S. Walton, H. Shi
-                  <br>
-                  <em>ICCV Workshop 2023</em>
-                  <br>
-                  <a href="https://arxiv.org/abs/2112.12782">PDF</a>
-              </td>
-            </tr>
+          <!-- VARP -->
+          <article class="pub-card highlight">
+            <div class="pub-media">
+              <img src="files/varp.gif" alt="VARP animation preview" loading="lazy">
+            </div>
+            <div class="pub-details">
+              <h3 class="pub-title">VARP: Reinforcement Learning from Vision-Language Model Feedback with Agent Regularized Preferences</h3>
+              <div class="pub-authors">
+                <span class="author-me">Anukriti Singh</span>*, A. Bhaskar*, P. Yu, S. Chakraborty, R. Dasyam, A. Bedi, P. Tokekar
+              </div>
+              <div class="pub-venue">
+                <span class="tag-badge">★ Highlighted</span>
+                <em>In Submission</em>
+              </div>
+            </div>
+          </article>
 
-              <!-- Quantum -->
-            <tr>
-                <td style="padding:20px;width:25%;vertical-align:middle;text-align:center">
-                  <img src="files/fnas-ps.png" alt="Quantum" width="280">
-              </td>
-                <td width="75%" valign="middle">
-                  <a href="https://quantum-journal.org/papers/q-2021-12-06-598/pdf/">
-                    <papertitle>Characterizing Quantum Evolutions via a Recommender System</papertitle>
-                  </a>
-                  <br>
-                  P. Batra, <strong>Anukriti Singh</strong>, T. S. Mahesh
-                  <br>
-                  <em>Quantum Journal 2021</em>
-                  <br>
-                  <a href="https://quantum-journal.org/papers/q-2021-12-06-598/pdf/">PDF</a>
-              </td>
-            </tr>
-            </tbody>
-          </table>
+          <!-- Sketch-to-Skill -->
+          <article class="pub-card highlight">
+            <div class="pub-media">
+              <img src="files/sketch2skill.gif" alt="Sketch-to-Skill preview" loading="lazy">
+            </div>
+            <div class="pub-details">
+              <h3 class="pub-title">
+                <a href="https://openreview.net/pdf?id=ww7JqIf494" target="_blank" rel="noopener">Sketch-to-Skill: Bootstrapping Robot Learning with Human Drawn Trajectory Sketches</a>
+              </h3>
+              <div class="pub-authors">
+                P. Yu*, A. Bhaskar*, <span class="author-me">Anukriti Singh</span>, Z. Mahammad, P. Tokekar
+              </div>
+              <div class="pub-venue">
+                <span class="tag-badge">★ RSS 2025</span>
+                <em>Robotics: Science and Systems (RSS) 2025</em>
+              </div>
+              <div class="pub-links">
+                <a href="https://openreview.net/pdf?id=ww7JqIf494" target="_blank" rel="noopener" class="btn-chip">[PDF]</a>
+              </div>
+            </div>
+          </article>
 
-          <!-- News Section -->
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-            <tbody>
-              <tr>
-                <td style="padding:20px;width:100%;vertical-align:middle">
-                  <heading>News</heading>
-              </td>
-            </tr>
-            </tbody>
-          </table>
+          <!-- Navigation -->
+          <article class="pub-card">
+            <div class="pub-media">
+              <img src="files/navigation.gif" alt="Mobile robot navigation preview" loading="lazy">
+            </div>
+            <div class="pub-details">
+              <h3 class="pub-title">
+                <a href="https://arxiv.org/pdf/2310.07021" target="_blank" rel="noopener">Pre-Trained Masked Image Model for Mobile Robot Navigation</a>
+              </h3>
+              <div class="pub-authors">
+                V. D. Sharma, <span class="author-me">Anukriti Singh</span>, P. Tokekar
+              </div>
+              <div class="pub-venue">
+                <em>IEEE International Conference on Robotics and Automation (ICRA) 2024</em>
+              </div>
+              <div class="pub-links">
+                <a href="https://arxiv.org/pdf/2310.07021" target="_blank" rel="noopener" class="btn-chip">[PDF]</a>
+              </div>
+            </div>
+          </article>
 
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-            <tbody>
-              <tr>
-                <td style="padding:20px;width:100%;vertical-align:middle">
-                  <p><strong>[July 2025]</strong>: First time volunteering experience - <a href="https://roboticsconference.org/">RSS 2025</a></p>
-                  <p><strong>[March 2025]</strong>: Awarded <strong>NSF I-Corps 2025 grant</strong> for customer discovery in tech innovation</p>
-                  <p><strong>[January 2025]</strong>: <strong>Sketch-to-Skill</strong> accepted to <a href="https://roboticsconference.org/">RSS 2025</a>!</p>
-                  <p><strong>[January 2025]</strong>: Starting my Ph.D. at <a href="https://umd.edu/">UMD College Park</a> with <a href="https://raaslab.org/">Prof. Pratap Tokekar</a>!</p>
-                  <p><strong>[March 2024]</strong>: Won the <strong>ICRA 2024 Travel Grant</strong> to attend <a href="https://2024.ieee-icra.org/">ICRA 2024</a> in Yokohama, Japan</p>
-                  <p><strong>[February 2024]</strong>: Joining <a href="https://www.bell-labs.com/">Bell Labs</a> as a Spring co-op research intern!</p>
-                  <p><strong>[January 2024]</strong>: <a href="https://arxiv.org/abs/2310.07021">Pre-Trained Masked Image Model for Mobile Robot Navigation</a> is accepted to <strong>ICRA 2024</strong>!</p>
-                  <p><strong>[August 2023]</strong>: <a href="https://github.com/Picsart-AI-Research/SeMask-Segmentation">SeMask</a> is accepted to <strong>NIVT Workshop at ICCV 2023</strong>!</p>
-              </td>
-            </tr>
-            </tbody>
-        </table>
+          <!-- FLIP-TD -->
+          <article class="pub-card">
+            <div class="pub-media">
+              <img src="files/fig_1_1.png" alt="FLIP-TD diagram preview" loading="lazy">
+            </div>
+            <div class="pub-details">
+              <h3 class="pub-title">
+                <a href="https://openreview.net/forum?id=7c0WHyETaHC" target="_blank" rel="noopener">FLIP-TD: Free Lunch Inpainting on Top-Down Images for Robotic Tasks</a>
+              </h3>
+              <div class="pub-authors">
+                <span class="author-me">Anukriti Singh</span>*, V. D. Sharma*, P. Tokekar
+              </div>
+              <div class="pub-venue">
+                <em>ICRA Workshop 2023</em>
+              </div>
+              <div class="pub-links">
+                <a href="https://openreview.net/forum?id=7c0WHyETaHC" target="_blank" rel="noopener" class="btn-chip">[PDF]</a>
+              </div>
+            </div>
+          </article>
 
-          <!-- Footer -->
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-            <tbody>
-              <tr>
-                <td style="padding:0px">
-                  <br>
-                  <p style="text-align:right;font-size:small;">
-                    Template inspired by <a href="https://priyasundaresan.github.io/">Priya Sundaresan</a> and <a href="https://jonbarron.info/">Jon Barron</a>.
-                  </p>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+          <!-- SeMask -->
+          <article class="pub-card">
+            <div class="pub-media">
+              <img src="files/semask.png" alt="SeMask diagram preview" loading="lazy">
+            </div>
+            <div class="pub-details">
+              <h3 class="pub-title">
+                <a href="https://arxiv.org/abs/2112.12782" target="_blank" rel="noopener">SeMask: Semantically Masked Transformers for Semantic Segmentation</a>
+              </h3>
+              <div class="pub-authors">
+                J. Jain, <span class="author-me">Anukriti Singh</span>, N. Orlov, Z. Huang, J. Li, S. Walton, H. Shi
+              </div>
+              <div class="pub-venue">
+                <em>ICCV Workshop 2023</em>
+              </div>
+              <div class="pub-links">
+                <a href="https://arxiv.org/abs/2112.12782" target="_blank" rel="noopener" class="btn-chip">[PDF]</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Quantum -->
+          <article class="pub-card">
+            <div class="pub-media">
+              <img src="files/fnas-ps.png" alt="Quantum recommender system diagram" loading="lazy">
+            </div>
+            <div class="pub-details">
+              <h3 class="pub-title">
+                <a href="https://quantum-journal.org/papers/q-2021-12-06-598/pdf/" target="_blank" rel="noopener">Characterizing Quantum Evolutions via a Recommender System</a>
+              </h3>
+              <div class="pub-authors">
+                P. Batra, <span class="author-me">Anukriti Singh</span>, T. S. Mahesh
+              </div>
+              <div class="pub-venue">
+                <em>Quantum Journal 2021</em>
+              </div>
+              <div class="pub-links">
+                <a href="https://quantum-journal.org/papers/q-2021-12-06-598/pdf/" target="_blank" rel="noopener" class="btn-chip">[PDF]</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- News Section -->
+      <section id="news" class="section">
+        <div class="section-header">
+          <h2 class="section-title">News</h2>
+        </div>
+
+        <div class="news-timeline">
+          <div class="news-item">
+            <span class="news-date">[July 2025]</span> First time volunteering experience — <a href="https://roboticsconference.org/" target="_blank" rel="noopener">RSS 2025</a>
+          </div>
+          <div class="news-item">
+            <span class="news-date">[March 2025]</span> Awarded <strong>NSF I-Corps 2025 grant</strong> for customer discovery in tech innovation
+          </div>
+          <div class="news-item">
+            <span class="news-date">[Jan 2025]</span> <strong>Sketch-to-Skill</strong> accepted to <a href="https://roboticsconference.org/" target="_blank" rel="noopener">RSS 2025</a>!
+          </div>
+          <div class="news-item">
+            <span class="news-date">[Jan 2025]</span> Starting my Ph.D. at <a href="https://umd.edu/" target="_blank" rel="noopener">UMD College Park</a> with <a href="https://raaslab.org/" target="_blank" rel="noopener">Prof. Pratap Tokekar</a>!
+          </div>
+          <div class="news-item">
+            <span class="news-date">[March 2024]</span> Won the <strong>ICRA 2024 Travel Grant</strong> to attend <a href="https://2024.ieee-icra.org/" target="_blank" rel="noopener">ICRA 2024</a> in Yokohama, Japan
+          </div>
+          <div class="news-item">
+            <span class="news-date">[Feb 2024]</span> Joining <a href="https://www.bell-labs.com/" target="_blank" rel="noopener">Bell Labs</a> as a Spring co-op research intern!
+          </div>
+          <div class="news-item">
+            <span class="news-date">[Jan 2024]</span> <a href="https://arxiv.org/abs/2310.07021" target="_blank" rel="noopener">Pre-Trained Masked Image Model for Mobile Robot Navigation</a> is accepted to <strong>ICRA 2024</strong>!
+          </div>
+          <div class="news-item">
+            <span class="news-date">[Aug 2023]</span> <a href="https://github.com/Picsart-AI-Research/SeMask-Segmentation" target="_blank" rel="noopener">SeMask</a> is accepted to <strong>NIVT Workshop at ICCV 2023</strong>!
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div>&copy; Anukriti Singh</div>
+      <div>
+        Inspired by <a href="https://priyasundaresan.github.io/" target="_blank" rel="noopener">Priya Sundaresan</a> &amp; <a href="https://jonbarron.info/" target="_blank" rel="noopener">Jon Barron</a>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- JavaScript for Light/Dark Theme Switcher -->
+  <script>
+    (function() {
+      const toggleBtn = document.getElementById('theme-toggle');
+      const themeIcon = document.getElementById('theme-icon');
+      const themeText = document.getElementById('theme-text');
+      
+      // Check saved theme or system preference
+      const savedTheme = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      
+      let currentTheme = savedTheme || (prefersDark ? 'dark' : 'light');
+      applyTheme(currentTheme);
+
+      function applyTheme(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+        if (theme === 'dark') {
+          themeIcon.textContent = '☀️';
+          themeText.textContent = 'Light';
+        } else {
+          themeIcon.textContent = '🌙';
+          themeText.textContent = 'Dark';
+        }
+      }
+
+      toggleBtn.addEventListener('click', function() {
+        currentTheme = (currentTheme === 'dark') ? 'light' : 'dark';
+        applyTheme(currentTheme);
+      });
+    })();
+  </script>
 </body>
 </html>
-
