@@ -110,6 +110,8 @@ a:hover {
   max-height: calc(100vh - 8rem);
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .profile-img-container {
@@ -566,6 +568,26 @@ a:hover {
   font-size: 0.95rem;
   color: var(--text-muted);
   line-height: 1.6;
+}
+
+.resume-list {
+  list-style-type: none;
+  padding-left: 0;
+  margin-top: 0.2rem;
+}
+
+.resume-list li {
+  position: relative;
+  padding-left: 1.2rem;
+  margin-bottom: 0.4rem;
+}
+
+.resume-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--accent-color);
+  font-weight: bold;
 }
 
 .exp-tags {
