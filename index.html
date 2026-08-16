@@ -27,15 +27,11 @@
         Ph.D. Student @ UMD
       </div>
       
-      <div class="bio">
-        <p>I am a Ph.D. student in Computer Science at the University of Maryland, College Park, advised by <a href="https://raaslab.org/" target="_blank" rel="noopener">Prof. Pratap Tokekar</a> in the RAAS Lab.</p>
-        <p>My research sits at the intersection of perception and robot learning, with a focus on building manipulation and navigation systems that generalize in the real world. I'm especially interested in learning from rich supervision—video, language, demonstrations, and preference feedback—and using foundation-scale vision models to make policies and rewards more data-efficient and robust.</p>
-        <p>I previously completed my M.Eng. in Robotics at UMD and have interned at <strong>Enchanted Tools</strong> (Paris), <a href="https://www.bell-labs.com/" target="_blank" rel="noopener">Nokia Bell Labs</a> and <a href="https://picsart.com/" target="_blank" rel="noopener">PicsArt AI Research</a>.</p>
-      </div>
-      
       <!-- Editorial Portfolio Sidebar Navigation -->
       <nav class="sidebar-nav">
-        <a href="#experience" class="nav-link active">Experience</a>
+        <a href="#about" class="nav-link active">About</a>
+        <a href="#education" class="nav-link">Education</a>
+        <a href="#experience" class="nav-link">Experience</a>
         <a href="#research" class="nav-link">Research</a>
         <a href="#news" class="nav-link">Timeline</a>
       </nav>
@@ -78,11 +74,68 @@
 
     <!-- Right Canvas: Main Content -->
     <main class="main-content">
+
+      <!-- About Section -->
+      <section id="about" style="margin-bottom: 4rem;">
+        <h2 class="section-title">About Me</h2>
+        <div class="bio-main animate-on-scroll" style="font-size: 1.05rem; line-height: 1.7; color: var(--text-muted);">
+          <p style="margin-bottom: 1rem;">I am a Ph.D. student in Computer Science at the University of Maryland, College Park, advised by <a href="https://raaslab.org/" target="_blank" rel="noopener" style="color: var(--text-main);">Prof. Pratap Tokekar</a> in the RAAS Lab.</p>
+          <p>My research sits at the intersection of perception and robot learning, with a focus on building manipulation and navigation systems that generalize in the real world. I'm especially interested in learning from rich supervision—video, language, demonstrations, and preference feedback—and using foundation-scale vision models to make policies and rewards more data-efficient and robust.</p>
+        </div>
+      </section>
+
+      <!-- Education Section -->
+      <section id="education" style="margin-bottom: 4rem;">
+        <h2 class="section-title">Education</h2>
+        
+        <div class="exp-container">
+          <!-- Ph.D. -->
+          <div class="exp-card animate-on-scroll">
+            <div class="exp-meta-side">
+              <span class="exp-duration">2025 – Present</span>
+              <span class="exp-location">College Park, MD</span>
+            </div>
+            <div class="exp-info">
+              <div class="exp-role-company">
+                Ph.D. in Computer Science 
+                <span class="middot-divider"></span>
+                <span class="exp-company-link">University of Maryland</span>
+              </div>
+              <div class="exp-desc">
+                <ul class="resume-list">
+                  <li>Advised by Prof. Pratap Tokekar in the RAAS Lab.</li>
+                  <li>Focusing on robot learning, foundation models, and real-world generalizable manipulation.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- M.Eng. -->
+          <div class="exp-card animate-on-scroll">
+            <div class="exp-meta-side">
+              <span class="exp-duration">Completed</span>
+              <span class="exp-location">College Park, MD</span>
+            </div>
+            <div class="exp-info">
+              <div class="exp-role-company">
+                Master of Engineering (Robotics)
+                <span class="middot-divider"></span>
+                <span class="exp-company-link">University of Maryland</span>
+              </div>
+              <div class="exp-desc">
+                <ul class="resume-list">
+                  <li>Specialized in perception, mobile robot navigation, and reinforcement learning.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       
       <!-- Experience Section -->
       <section id="experience">
         <h2 class="section-title">
-          Research & Professional Experience
+          Professional Experience
           <span class="section-subtitle">Connecting industry and academic roles</span>
         </h2>
         
@@ -101,7 +154,10 @@
                 <a href="https://enchantedtools.com/" target="_blank" rel="noopener" class="exp-company-link">Enchanted Tools</a>
               </div>
               <div class="exp-desc">
-                Researched Signal Temporal Logic (STL) and Vision-Language Models (VLMs) to specify high-precision, natural language guided action generation for robotic manipulation.
+                <ul class="resume-list">
+                  <li>Researched Signal Temporal Logic (STL) and Vision-Language Models (VLMs) to specify high-precision action generation.</li>
+                  <li>Bridged natural language intent with robust robotic manipulation guarantees.</li>
+                </ul>
               </div>
               <div class="exp-tags">
                 <span class="exp-tag">Signal Temporal Logic</span>
@@ -127,7 +183,10 @@
                 <a href="https://umiacs.umd.edu/" target="_blank" rel="noopener" class="exp-company-link">UMIACS, UMD</a>
               </div>
               <div class="exp-desc">
-                Developed a framework for bootstrapping reinforcement learning using 2D sketch trajectories, achieving 96% of teleop baseline and a 170% improvement over pure RL.
+                <ul class="resume-list">
+                  <li>Developed a framework for bootstrapping reinforcement learning using 2D sketch trajectories.</li>
+                  <li>Achieved 96% of teleop baseline performance and a 170% improvement over pure RL methods.</li>
+                </ul>
               </div>
               <div class="exp-tags">
                 <span class="exp-tag">Reinforcement Learning</span>
@@ -153,7 +212,10 @@
                 <a href="https://www.bell-labs.com/" target="_blank" rel="noopener" class="exp-company-link">Nokia Bell Labs</a>
               </div>
               <div class="exp-desc">
-                Curated warehouse data for segmentation; adapted 3D multi-object tracking to 2D with Kalman filters, reducing false positives and improving tracking reliability.
+                <ul class="resume-list">
+                  <li>Curated large-scale warehouse data for training robust segmentation models.</li>
+                  <li>Adapted 3D multi-object tracking to 2D using Kalman filters, significantly reducing false positive rates.</li>
+                </ul>
               </div>
               <div class="exp-tags">
                 <span class="exp-tag">Kalman Filtering</span>
@@ -176,7 +238,10 @@
                 <a href="https://www.bell-labs.com/" target="_blank" rel="noopener" class="exp-company-link">Nokia Bell Labs</a>
               </div>
               <div class="exp-desc">
-                Built a zero-shot 6D pose estimation pipeline, integrating YOLO, SfM, and PnP; improved computational efficiency by 50% for real-time performance.
+                <ul class="resume-list">
+                  <li>Engineered a zero-shot 6D pose estimation pipeline by integrating YOLO, SfM, and PnP.</li>
+                  <li>Optimized computational efficiency by 50%, enabling robust real-time tracking performance.</li>
+                </ul>
               </div>
               <div class="exp-tags">
                 <span class="exp-tag">6D Pose Estimation</span>
@@ -199,7 +264,10 @@
                 <a href="https://picsart.com/" target="_blank" rel="noopener" class="exp-company-link">PicsArt AI Research</a>
               </div>
               <div class="exp-desc">
-                Designed a novel vision-language architecture for zero-shot semantic segmentation using prompt-conditioned language tokens.
+                <ul class="resume-list">
+                  <li>Designed a novel vision-language architecture for zero-shot semantic segmentation.</li>
+                  <li>Leveraged prompt-conditioned language tokens to significantly improve cross-modal alignment.</li>
+                </ul>
               </div>
               <div class="exp-tags">
                 <span class="exp-tag">Zero-Shot Segmentation</span>
@@ -225,7 +293,10 @@
                 <a href="https://robotics.iiit.ac.in/" target="_blank" rel="noopener" class="exp-company-link">RRC, IIIT Hyderabad</a>
               </div>
               <div class="exp-desc">
-                Researched visual grounding and dense captioning, focusing on mapping semantic natural language tokens to 3D visual coordinates.
+                <ul class="resume-list">
+                  <li>Conducted research in visual grounding and dense captioning.</li>
+                  <li>Focused on creating precise mappings between semantic natural language tokens and 3D visual coordinates.</li>
+                </ul>
               </div>
               <div class="exp-tags">
                 <span class="exp-tag">Visual Grounding</span>
@@ -247,7 +318,10 @@
                 <a href="https://sites.google.com/view/m00nlab/home" target="_blank" rel="noopener" class="exp-company-link">MOON Lab</a>
               </div>
               <div class="exp-desc">
-                Developed recommendation systems for characterizing quantum evolutions using collaborative filtering algorithms.
+                <ul class="resume-list">
+                  <li>Engineered recommendation systems to characterize complex quantum evolutions.</li>
+                  <li>Applied collaborative filtering algorithms to domain-specific physics challenges.</li>
+                </ul>
               </div>
               <div class="exp-tags">
                 <span class="exp-tag">Quantum Computing</span>
@@ -263,7 +337,7 @@
           <div class="exp-card animate-on-scroll">
             <div class="exp-meta-side">
               <span class="exp-duration">Feb 2020 – Oct 2020</span>
-              <span class="exp-location">Eugene, Oregon, USA</span>
+              <span class="exp-location">Eugene, OR</span>
             </div>
             <div class="exp-info">
               <div class="exp-role-company">
@@ -272,7 +346,10 @@
                 <a href="https://www.humphreyshi.com/" target="_blank" rel="noopener" class="exp-company-link">SHI Lab, UO</a>
               </div>
               <div class="exp-desc">
-                Researched visual grounding and dense captions to merge semantic localization models with object detectors.
+                <ul class="resume-list">
+                  <li>Explored intersections of visual grounding and object detection.</li>
+                  <li>Merged semantic localization models with dense object detectors for improved scene understanding.</li>
+                </ul>
               </div>
               <div class="exp-tags">
                 <span class="exp-tag">Visual Grounding</span>
