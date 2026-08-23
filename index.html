@@ -5,698 +5,533 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Anukriti Singh</title>
   <meta name="author" content="Anukriti Singh">
-  <meta name="description" content="Personal website of Anukriti Singh, Ph.D. Student in Computer Science at UMD RAAS Lab.">
-  <link rel="stylesheet" href="stylesheet.css?v=4">
+  <meta name="description" content="Anukriti Singh — Ph.D. student in Computer Science at UMD, working on robot learning, manipulation, and foundation models.">
+  <link rel="stylesheet" href="stylesheet.css?v=6">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>">
 </head>
 
 <body>
-  
-  <div class="layout-wrapper">
-    
-    <!-- Left Sidebar: Profile & Info -->
-    <aside class="sidebar">
-      <div class="profile-img-container">
-        <img src="authors/admin/1730648801032.jpg" alt="Anukriti Singh" class="profile-img">
+
+  <!-- Mechanical Robot Manipulator cursor SVG (rendered by JS) -->
+  <svg class="manipulator-svg" id="manipulator">
+    <!-- Link 1 (Upper arm): Chassis + Core groove -->
+    <line id="arm-link1-chassis" class="arm-chassis" x1="0" y1="0" x2="0" y2="0"/>
+    <line id="arm-link1-core" class="arm-core" x1="0" y1="0" x2="0" y2="0"/>
+
+    <!-- Link 2 (Forearm): Chassis + Core groove -->
+    <line id="arm-link2-chassis" class="arm-chassis" x1="0" y1="0" x2="0" y2="0"/>
+    <line id="arm-link2-core" class="arm-core" x1="0" y1="0" x2="0" y2="0"/>
+
+    <!-- Base Actuator Joint -->
+    <circle id="arm-base-outer" class="joint-outer" cx="0" cy="0" r="5.5"/>
+    <circle id="arm-base-inner" class="joint-inner" cx="0" cy="0" r="2.2"/>
+
+    <!-- Elbow Actuator Joint -->
+    <circle id="arm-elbow-outer" class="joint-outer" cx="0" cy="0" r="4.5"/>
+    <circle id="arm-elbow-inner" class="joint-inner" cx="0" cy="0" r="1.8"/>
+
+    <!-- Wrist Joint -->
+    <circle id="arm-wrist-outer" class="joint-outer" cx="0" cy="0" r="3.5"/>
+
+    <!-- Gripper Jaws & Contact Pads -->
+    <line id="gripper-l" class="gripper-jaw" x1="0" y1="0" x2="0" y2="0"/>
+    <line id="gripper-r" class="gripper-jaw" x1="0" y1="0" x2="0" y2="0"/>
+    <circle id="gripper-l-pad" class="gripper-pad" cx="0" cy="0" r="1.5"/>
+    <circle id="gripper-r-pad" class="gripper-pad" cx="0" cy="0" r="1.5"/>
+  </svg>
+  <div class="cursor-dot" id="cursor-dot"></div>
+
+  <!-- Floating Quick-Jump Side Navigation -->
+  <nav class="side-nav" aria-label="Page navigation">
+    <a href="#about" class="side-nav-link active" data-target="about">
+      <span class="side-nav-dot"></span>
+      <span>About</span>
+    </a>
+    <a href="#news" class="side-nav-link" data-target="news">
+      <span class="side-nav-dot"></span>
+      <span>News</span>
+    </a>
+    <a href="#experience" class="side-nav-link" data-target="experience">
+      <span class="side-nav-dot"></span>
+      <span>Experience</span>
+    </a>
+    <a href="#research" class="side-nav-link" data-target="research">
+      <span class="side-nav-dot"></span>
+      <span>Research</span>
+    </a>
+  </nav>
+
+  <div class="shell">
+
+    <!-- Top bar -->
+    <div class="topbar">
+      <a href="#" class="brand">Anukriti Singh</a>
+      <div class="topbar-right">
+        <span class="toggle-label" id="theme-label">Dark</span>
+        <label class="toggle" id="theme-toggle" aria-label="Toggle dark mode">
+          <input type="checkbox" id="theme-check">
+          <span class="knob"></span>
+        </label>
       </div>
-      
-      <h1 class="profile-name">Anukriti Singh</h1>
-      
-      <div class="status-badge">
-        <span class="status-indicator"></span>
-        Ph.D. Student @ UMD
-      </div>
-      
-      <!-- Editorial Portfolio Sidebar Navigation -->
-      <nav class="sidebar-nav">
-        <a href="#about" class="nav-link active">About</a>
-        <a href="#education" class="nav-link">Education</a>
-        <a href="#experience" class="nav-link">Experience</a>
-        <a href="#research" class="nav-link">Research</a>
-        <a href="#news" class="nav-link">Timeline</a>
-      </nav>
+    </div>
 
-      <!-- Minimal Social Links -->
-      <div class="social-links">
-        <a href="mailto:anukriti@terpmail.umd.edu" class="social-btn" aria-label="Email" title="Email">
-          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-          Email
-        </a>
-        <a href="https://drive.google.com/file/d/10SaB9mI71bbce1WUvN5jx-Ygf__GOP1S/view?usp=sharing" target="_blank" rel="noopener" class="social-btn" aria-label="CV" title="CV">
-          <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
-          CV
-        </a>
-        <a href="https://github.com/anukritisinghh/" target="_blank" rel="noopener" class="social-btn" aria-label="GitHub" title="GitHub">
-          <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-          GitHub
-        </a>
-        <a href="https://scholar.google.com/citations?user=G4gza-gAAAAJ&hl=en" target="_blank" rel="noopener" class="social-btn" aria-label="Google Scholar" title="Google Scholar">
-          <svg viewBox="0 0 24 24"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l12 9.5 9-7.125V18h3V9.5L12 0zm0 4.24l5.38 4.26L12 12.76 6.62 8.5 12 4.24z"/></svg>
-          Scholar
-        </a>
-        <a href="https://twitter.com/singhanukriti" target="_blank" rel="noopener" class="social-btn" aria-label="X" title="X">
-          <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-          X
-        </a>
-        <a href="https://www.linkedin.com/in/singh-anukriti1/" target="_blank" rel="noopener" class="social-btn" aria-label="LinkedIn" title="LinkedIn">
-          <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.75a1.45 1.45 0 1 0 0 2.9 1.45 1.45 0 0 0 0-2.9z"/></svg>
-          LinkedIn
-        </a>
-      </div>
-
-      <!-- Minimal Theme Switcher -->
-      <div class="theme-switch-wrapper" id="theme-toggle">
-        <span id="theme-icon" class="theme-btn">☾</span> 
-        <span id="theme-text">Dark mode</span>
-      </div>
-
-    </aside>
-
-    <!-- Right Canvas: Main Content -->
-    <main class="main-content">
-
-      <!-- About Section -->
-      <section id="about" style="margin-bottom: 4rem;">
-        <h2 class="section-title">About Me</h2>
-        <div class="bio-main animate-on-scroll" style="font-size: 1.05rem; line-height: 1.7; color: var(--text-muted);">
-          <p style="margin-bottom: 1rem;">I am a Ph.D. student in Computer Science at the University of Maryland, College Park, advised by <a href="https://raaslab.org/" target="_blank" rel="noopener" style="color: var(--text-main);">Prof. Pratap Tokekar</a> in the RAAS Lab.</p>
-          <p>My research sits at the intersection of perception and robot learning, with a focus on building manipulation and navigation systems that generalize in the real world. I'm especially interested in learning from rich supervision—video, language, demonstrations, and preference feedback—and using foundation-scale vision models to make policies and rewards more data-efficient and robust.</p>
+    <!-- Intro / About Section -->
+    <section id="about" class="intro animate-in">
+      <div class="intro-text">
+        <p>
+          I am a Ph.D. student in Computer Science at the <strong>University of Maryland, College Park</strong>,
+          advised by <a href="https://raaslab.org/" target="_blank" rel="noopener">Prof. Pratap Tokekar</a> in the RAAS Lab.
+          I hold a Master of Engineering (Robotics) from UMD.
+        </p>
+        <p>
+          My research sits at the intersection of perception and <strong>robot learning</strong>, with a focus on building
+          <strong>manipulation</strong> and navigation systems that generalize in the real world.
+          I'm especially interested in learning from rich supervision — video, language, demonstrations,
+          and preference feedback — and using foundation-scale vision models to make policies and rewards
+          more data-efficient and robust.
+        </p>
+        <div class="intro-links">
+          <a href="mailto:anukriti@terpmail.umd.edu">Email</a>
+          <span class="sep">/</span>
+          <a href="https://drive.google.com/file/d/10SaB9mI71bbce1WUvN5jx-Ygf__GOP1S/view?usp=sharing" target="_blank" rel="noopener">CV</a>
+          <span class="sep">/</span>
+          <a href="https://scholar.google.com/citations?user=G4gza-gAAAAJ&hl=en" target="_blank" rel="noopener">Scholar</a>
+          <span class="sep">/</span>
+          <a href="https://www.linkedin.com/in/singh-anukriti1/" target="_blank" rel="noopener">LinkedIn</a>
+          <span class="sep">/</span>
+          <a href="https://github.com/anukritisinghh/" target="_blank" rel="noopener">GitHub</a>
+          <span class="sep">/</span>
+          <a href="https://twitter.com/singhanukriti" target="_blank" rel="noopener">X</a>
         </div>
-      </section>
+      </div>
+      <img src="authors/admin/1730648801032.jpg" alt="Anukriti Singh" class="portrait">
+    </section>
 
-      <!-- Education Section -->
-      <section id="education" style="margin-bottom: 4rem;">
-        <h2 class="section-title">Education</h2>
-        
-        <div class="exp-container">
-          <!-- Ph.D. -->
-          <div class="exp-card animate-on-scroll">
-            <div class="exp-meta-side">
-              <span class="exp-duration">2025 – Present</span>
-              <span class="exp-location">College Park, MD</span>
+    <!-- ================================================================ -->
+    <!-- News Section (2023 - Present) -->
+    <!-- ================================================================ -->
+    <section id="news">
+      <h2>News</h2>
+      <ul class="news-list">
+        <li class="animate-in">
+          <span class="news-date">Jul 2026</span>
+          <span><strong>STeP</strong> paper posted on arXiv — precise action generation with Vision Language Models.</span>
+        </li>
+        <li class="animate-in">
+          <span class="news-date">May 2026</span>
+          <span>Moved to Paris for the summer as a Research Intern at <strong>Enchanted Tools</strong>!</span>
+        </li>
+        <li class="animate-in">
+          <span class="news-date">Jan 2025</span>
+          <span><strong>Sketch-to-Skill</strong> accepted to <a href="https://roboticsconference.org/" target="_blank" rel="noopener">RSS 2025</a>!</span>
+        </li>
+      </ul>
+
+      <!-- Collapsible extra news (2023-2025) -->
+      <div class="collapsible-items" id="news-more">
+        <ul class="news-list">
+          <li class="animate-in">
+            <span class="news-date">Jul 2025</span>
+            <span>First time volunteering at <a href="https://roboticsconference.org/" target="_blank" rel="noopener">RSS 2025</a>.</span>
+          </li>
+          <li class="animate-in">
+            <span class="news-date">Mar 2025</span>
+            <span>Awarded <strong>NSF I-Corps 2025 grant</strong> for customer discovery in tech innovation.</span>
+          </li>
+          <li class="animate-in">
+            <span class="news-date">Jan 2025</span>
+            <span>Starting my Ph.D. at <a href="https://umd.edu/" target="_blank" rel="noopener">UMD</a> with <a href="https://raaslab.org/" target="_blank" rel="noopener">Prof. Pratap Tokekar</a>!</span>
+          </li>
+          <li class="animate-in">
+            <span class="news-date">Mar 2024</span>
+            <span>Won the <strong>ICRA 2024 Travel Grant</strong> to attend ICRA in Yokohama, Japan.</span>
+          </li>
+          <li class="animate-in">
+            <span class="news-date">Feb 2024</span>
+            <span>Joining <a href="https://www.bell-labs.com/" target="_blank" rel="noopener">Bell Labs</a> as a Spring co-op research intern!</span>
+          </li>
+          <li class="animate-in">
+            <span class="news-date">Jan 2024</span>
+            <span><a href="https://arxiv.org/abs/2310.07021" target="_blank" rel="noopener">Pre-Trained Masked Image Model for Navigation</a> accepted to <strong>ICRA 2024</strong>!</span>
+          </li>
+          <li class="animate-in">
+            <span class="news-date">Aug 2023</span>
+            <span><a href="https://github.com/Picsart-AI-Research/SeMask-Segmentation" target="_blank" rel="noopener">SeMask</a> accepted to <strong>NIVT Workshop at ICCV 2023</strong>!</span>
+          </li>
+        </ul>
+      </div>
+      <button class="toggle-btn" onclick="toggleSection('news-more', this)">
+        <span class="arrow">▼</span> show more
+      </button>
+    </section>
+
+    <!-- ================================================================ -->
+    <!-- Experience Section (2023 - Present) -->
+    <!-- ================================================================ -->
+    <section id="experience">
+      <h2>Experience</h2>
+      <ul class="exp-list">
+        <!-- Enchanted Tools -->
+        <li class="animate-in">
+          <div class="exp-meta">
+            <span class="dates">May – Sep 2026</span>
+            <span class="loc">Paris, France</span>
+          </div>
+          <div class="exp-body">
+            <div class="role">Research Intern · <a href="https://enchantedtools.com/" target="_blank" rel="noopener" class="org">Enchanted Tools</a></div>
+            <div class="desc">Researched methods to improve policy performance using lightweight reinforcement learning and deployed algorithms on the Mirokai humanoid robot for mobile manipulation.</div>
+            <div class="exp-tags">
+              <span class="exp-tag">Lightweight RL</span>
+              <span class="exp-tag">Mirokai Robot</span>
+              <span class="exp-tag">Mobile Manipulation</span>
             </div>
-            <div class="exp-info">
-              <div class="exp-role-company">
-                Ph.D. in Computer Science 
-                <span class="middot-divider"></span>
-                <span class="exp-company-link">University of Maryland</span>
-              </div>
-              <div class="exp-desc">
-                <ul class="resume-list">
-                  <li>Advised by Prof. Pratap Tokekar in the RAAS Lab.</li>
-                  <li>Focusing on robot learning, foundation models, and real-world generalizable manipulation.</li>
-                </ul>
-              </div>
+            <a href="#step-paper" class="exp-result">📄 → STeP paper (arXiv 2026)</a>
+          </div>
+        </li>
+
+        <!-- UMIACS -->
+        <li class="animate-in">
+          <div class="exp-meta">
+            <span class="dates">Jun – Dec 2024</span>
+            <span class="loc">College Park, MD</span>
+          </div>
+          <div class="exp-body">
+            <div class="role">Faculty Research Assistant · <a href="https://umiacs.umd.edu/" target="_blank" rel="noopener" class="org">UMIACS, UMD</a></div>
+            <div class="desc">Developed a framework for bootstrapping RL using 2D sketch trajectories. Achieved 96% of teleop baseline and 170% improvement over pure RL.</div>
+            <div class="exp-tags">
+              <span class="exp-tag">Reinforcement Learning</span>
+              <span class="exp-tag">Trajectory Sketching</span>
+            </div>
+            <a href="#sketch-paper" class="exp-result">📄 → Sketch-to-Skill (RSS 2025)</a>
+          </div>
+        </li>
+
+        <!-- Nokia Co-op -->
+        <li class="animate-in">
+          <div class="exp-meta">
+            <span class="dates">Feb – May 2024</span>
+            <span class="loc">NJ / Remote</span>
+          </div>
+          <div class="exp-body">
+            <div class="role">Robotics Co-op · <a href="https://www.bell-labs.com/" target="_blank" rel="noopener" class="org">Nokia Bell Labs</a></div>
+            <div class="desc">Curated large-scale warehouse data for segmentation models. Adapted 3D multi-object tracking to 2D using Kalman filters.</div>
+            <div class="exp-tags">
+              <span class="exp-tag">Kalman Filtering</span>
+              <span class="exp-tag">3D MOT</span>
             </div>
           </div>
+        </li>
+      </ul>
 
-          <!-- M.Eng. -->
-          <div class="exp-card animate-on-scroll">
-            <div class="exp-meta-side">
-              <span class="exp-duration">Completed</span>
-              <span class="exp-location">College Park, MD</span>
+      <!-- Collapsible extra experience (2023 Intern) -->
+      <div class="collapsible-items" id="exp-more">
+        <ul class="exp-list">
+          <!-- Nokia Intern -->
+          <li class="animate-in">
+            <div class="exp-meta">
+              <span class="dates">Jun – Aug 2023</span>
+              <span class="loc">Murray Hill, NJ</span>
             </div>
-            <div class="exp-info">
-              <div class="exp-role-company">
-                Master of Engineering (Robotics)
-                <span class="middot-divider"></span>
-                <span class="exp-company-link">University of Maryland</span>
-              </div>
-              <div class="exp-desc">
-                <ul class="resume-list">
-                  <li>Specialized in perception, mobile robot navigation, and reinforcement learning.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      
-      <!-- Experience Section -->
-      <section id="experience">
-        <h2 class="section-title">
-          Professional Experience
-          <span class="section-subtitle">Connecting industry and academic roles</span>
-        </h2>
-        
-        <div class="exp-container">
-          
-          <!-- Enchanted Tools -->
-          <div class="exp-card animate-on-scroll">
-            <div class="exp-meta-side">
-              <span class="exp-duration">May 2026 – Sept 2026</span>
-              <span class="exp-location">Paris, France</span>
-            </div>
-            <div class="exp-info">
-              <div class="exp-role-company">
-                Research Intern 
-                <span class="middot-divider"></span>
-                <a href="https://enchantedtools.com/" target="_blank" rel="noopener" class="exp-company-link">Enchanted Tools</a>
-              </div>
-              <div class="exp-desc">
-                <ul class="resume-list">
-                  <li>Researched Signal Temporal Logic (STL) and Vision-Language Models (VLMs) to specify high-precision action generation.</li>
-                  <li>Bridged natural language intent with robust robotic manipulation guarantees.</li>
-                </ul>
-              </div>
-              <div class="exp-tags">
-                <span class="exp-tag">Signal Temporal Logic</span>
-                <span class="exp-tag">VLM Action Generation</span>
-                <span class="exp-tag">Mobile Manipulation</span>
-              </div>
-              <a href="#research" class="exp-result-link">
-                📄 Resulted in <strong>STeP</strong> paper (In Submission, arXiv 2026)
-              </a>
-            </div>
-          </div>
-
-          <!-- UMIACS, UMD -->
-          <div class="exp-card animate-on-scroll">
-            <div class="exp-meta-side">
-              <span class="exp-duration">Jun 2024 – Dec 2024</span>
-              <span class="exp-location">College Park, MD</span>
-            </div>
-            <div class="exp-info">
-              <div class="exp-role-company">
-                Faculty Research Assistant 
-                <span class="middot-divider"></span>
-                <a href="https://umiacs.umd.edu/" target="_blank" rel="noopener" class="exp-company-link">UMIACS, UMD</a>
-              </div>
-              <div class="exp-desc">
-                <ul class="resume-list">
-                  <li>Developed a framework for bootstrapping reinforcement learning using 2D sketch trajectories.</li>
-                  <li>Achieved 96% of teleop baseline performance and a 170% improvement over pure RL methods.</li>
-                </ul>
-              </div>
-              <div class="exp-tags">
-                <span class="exp-tag">Reinforcement Learning</span>
-                <span class="exp-tag">Trajectory Sketching</span>
-                <span class="exp-tag">Robotic Manipulation</span>
-              </div>
-              <a href="#research" class="exp-result-link">
-                📄 Resulted in <strong>Sketch-to-Skill</strong> paper (RSS 2025)
-              </a>
-            </div>
-          </div>
-
-          <!-- Nokia Bell Labs Co-op -->
-          <div class="exp-card animate-on-scroll">
-            <div class="exp-meta-side">
-              <span class="exp-duration">Feb 2024 – May 2024</span>
-              <span class="exp-location">NJ / Remote</span>
-            </div>
-            <div class="exp-info">
-              <div class="exp-role-company">
-                Robotics Co-op 
-                <span class="middot-divider"></span>
-                <a href="https://www.bell-labs.com/" target="_blank" rel="noopener" class="exp-company-link">Nokia Bell Labs</a>
-              </div>
-              <div class="exp-desc">
-                <ul class="resume-list">
-                  <li>Curated large-scale warehouse data for training robust segmentation models.</li>
-                  <li>Adapted 3D multi-object tracking to 2D using Kalman filters, significantly reducing false positive rates.</li>
-                </ul>
-              </div>
-              <div class="exp-tags">
-                <span class="exp-tag">Kalman Filtering</span>
-                <span class="exp-tag">3D Multi-Object Tracking</span>
-                <span class="exp-tag">Warehouse Segmentation</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Nokia Bell Labs Intern -->
-          <div class="exp-card animate-on-scroll">
-            <div class="exp-meta-side">
-              <span class="exp-duration">Jun 2023 – Aug 2023</span>
-              <span class="exp-location">Murray Hill, NJ</span>
-            </div>
-            <div class="exp-info">
-              <div class="exp-role-company">
-                Robotics Intern 
-                <span class="middot-divider"></span>
-                <a href="https://www.bell-labs.com/" target="_blank" rel="noopener" class="exp-company-link">Nokia Bell Labs</a>
-              </div>
-              <div class="exp-desc">
-                <ul class="resume-list">
-                  <li>Engineered a zero-shot 6D pose estimation pipeline by integrating YOLO, SfM, and PnP.</li>
-                  <li>Optimized computational efficiency by 50%, enabling robust real-time tracking performance.</li>
-                </ul>
-              </div>
+            <div class="exp-body">
+              <div class="role">Robotics Intern · <a href="https://www.bell-labs.com/" target="_blank" rel="noopener" class="org">Nokia Bell Labs</a></div>
+              <div class="desc">Engineered a zero-shot 6D pose estimation pipeline (YOLO + SfM + PnP). Optimized efficiency by 50%.</div>
               <div class="exp-tags">
                 <span class="exp-tag">6D Pose Estimation</span>
-                <span class="exp-tag">Zero-Shot Learning</span>
-                <span class="exp-tag">YOLO & PnP</span>
+                <span class="exp-tag">Zero-Shot</span>
               </div>
             </div>
-          </div>
+          </li>
+        </ul>
+      </div>
+      <button class="toggle-btn" onclick="toggleSection('exp-more', this)">
+        <span class="arrow">▼</span> show more
+      </button>
+    </section>
 
-          <!-- PicsArt AI Research -->
-          <div class="exp-card animate-on-scroll">
-            <div class="exp-meta-side">
-              <span class="exp-duration">Mar 2022 – Aug 2022</span>
-              <span class="exp-location">Remote</span>
-            </div>
-            <div class="exp-info">
-              <div class="exp-role-company">
-                Researcher 
-                <span class="middot-divider"></span>
-                <a href="https://picsart.com/" target="_blank" rel="noopener" class="exp-company-link">PicsArt AI Research</a>
+    <!-- ================================================================ -->
+    <!-- Research Section -->
+    <!-- ================================================================ -->
+    <section id="research">
+      <h2>Research</h2>
+      <p class="section-note">
+        I'm interested in robot manipulation, perception, and learning from rich supervision.
+        Representative papers are <span style="background: var(--highlight-row); padding: 1px 6px; border-radius: 4px;">highlighted</span>.
+      </p>
+
+      <table class="pub-table">
+        <tbody>
+
+          <!-- STeP -->
+          <tr class="pub-row highlighted animate-in" id="step-paper">
+            <td class="pub-thumb-cell">
+              <div class="pub-img-wrap">
+                <div style="display:flex; align-items:center; justify-content:center; height:100%; font-size:0.85rem; color:var(--subtle);">STeP<br><br>[preview soon]</div>
               </div>
-              <div class="exp-desc">
-                <ul class="resume-list">
-                  <li>Designed a novel vision-language architecture for zero-shot semantic segmentation.</li>
-                  <li>Leveraged prompt-conditioned language tokens to significantly improve cross-modal alignment.</li>
-                </ul>
+            </td>
+            <td class="pub-info">
+              <div class="pub-title">
+                <a href="https://arxiv.org/pdf/2607.18580" target="_blank" rel="noopener">STeP: Signal Temporal Logic for Precise Specifications for Action Generation with Vision Language Models</a>
               </div>
-              <div class="exp-tags">
-                <span class="exp-tag">Zero-Shot Segmentation</span>
-                <span class="exp-tag">Transformers</span>
-                <span class="exp-tag">Vision-Language Alignment</span>
+              <div class="pub-authors">
+                K. Torshizi*, <span class="me">Anukriti Singh</span>*, S. Mathur, P. Tokekar
               </div>
-              <a href="#research" class="exp-result-link">
-                📄 Resulted in <strong>SeMask</strong> paper (ICCV Workshop 2023)
-              </a>
-            </div>
-          </div>
-
-          <!-- RRC IIIT Hyderabad -->
-          <div class="exp-card animate-on-scroll">
-            <div class="exp-meta-side">
-              <span class="exp-duration">Jul 2021 – Mar 2022</span>
-              <span class="exp-location">Hyderabad, India</span>
-            </div>
-            <div class="exp-info">
-              <div class="exp-role-company">
-                Research Assistant 
-                <span class="middot-divider"></span>
-                <a href="https://robotics.iiit.ac.in/" target="_blank" rel="noopener" class="exp-company-link">RRC, IIIT Hyderabad</a>
+              <div class="pub-venue">
+                <span class="venue-badge">In Submission</span> arXiv, 2026
               </div>
-              <div class="exp-desc">
-                <ul class="resume-list">
-                  <li>Conducted research in visual grounding and dense captioning.</li>
-                  <li>Focused on creating precise mappings between semantic natural language tokens and 3D visual coordinates.</li>
-                </ul>
+              <div class="pub-links">
+                <a href="https://arxiv.org/pdf/2607.18580" target="_blank" rel="noopener">PDF</a>
               </div>
-              <div class="exp-tags">
-                <span class="exp-tag">Visual Grounding</span>
-                <span class="exp-tag">Dense Captioning</span>
+            </td>
+          </tr>
+
+          <!-- Afford2Act -->
+          <tr class="pub-row highlighted animate-in">
+            <td class="pub-thumb-cell">
+              <div class="pub-img-wrap">
+                <img src="files/afford2act_fast.gif" alt="Afford2Act preview">
               </div>
-            </div>
-          </div>
-
-          <!-- MOON Lab -->
-          <div class="exp-card animate-on-scroll">
-            <div class="exp-meta-side">
-              <span class="exp-duration">Jan 2021 – Jun 2021</span>
-              <span class="exp-location">Bhopal, India</span>
-            </div>
-            <div class="exp-info">
-              <div class="exp-role-company">
-                Research Assistant 
-                <span class="middot-divider"></span>
-                <a href="https://sites.google.com/view/m00nlab/home" target="_blank" rel="noopener" class="exp-company-link">MOON Lab</a>
+            </td>
+            <td class="pub-info">
+              <div class="pub-title">
+                <a href="https://arxiv.org/pdf/2510.01433" target="_blank" rel="noopener">Afford2Act: Affordance-Guided Automatic Keypoint Selection for Generalizable and Lightweight Robotic Manipulation</a>
               </div>
-              <div class="exp-desc">
-                <ul class="resume-list">
-                  <li>Engineered recommendation systems to characterize complex quantum evolutions.</li>
-                  <li>Applied collaborative filtering algorithms to domain-specific physics challenges.</li>
-                </ul>
+              <div class="pub-authors">
+                <span class="me">Anukriti Singh</span>, K. Torshizi, K. Habib, K. Yu, R. Gao, P. Tokekar
               </div>
-              <div class="exp-tags">
-                <span class="exp-tag">Quantum Computing</span>
-                <span class="exp-tag">Collaborative Filtering</span>
+              <div class="pub-venue">
+                <span class="venue-badge">In Submission</span>
               </div>
-              <a href="#research" class="exp-result-link">
-                📄 Resulted in <strong>Quantum Evolutions</strong> paper (Quantum Journal 2021)
-              </a>
-            </div>
-          </div>
-
-          <!-- SHI Lab -->
-          <div class="exp-card animate-on-scroll">
-            <div class="exp-meta-side">
-              <span class="exp-duration">Feb 2020 – Oct 2020</span>
-              <span class="exp-location">Eugene, OR</span>
-            </div>
-            <div class="exp-info">
-              <div class="exp-role-company">
-                Visiting Student 
-                <span class="middot-divider"></span>
-                <a href="https://www.humphreyshi.com/" target="_blank" rel="noopener" class="exp-company-link">SHI Lab, UO</a>
+              <div class="pub-links">
+                <a href="https://arxiv.org/pdf/2510.01433" target="_blank" rel="noopener">PDF</a>
               </div>
-              <div class="exp-desc">
-                <ul class="resume-list">
-                  <li>Explored intersections of visual grounding and object detection.</li>
-                  <li>Merged semantic localization models with dense object detectors for improved scene understanding.</li>
-                </ul>
+            </td>
+          </tr>
+
+          <!-- VARP -->
+          <tr class="pub-row highlighted animate-in">
+            <td class="pub-thumb-cell">
+              <div class="pub-img-wrap">
+                <img src="files/varp.gif" alt="VARP preview">
               </div>
-              <div class="exp-tags">
-                <span class="exp-tag">Visual Grounding</span>
-                <span class="exp-tag">Object Detection</span>
+            </td>
+            <td class="pub-info">
+              <div class="pub-title">
+                <a href="https://arxiv.org/pdf/2503.13817" target="_blank" rel="noopener">VARP: Reinforcement Learning from Vision-Language Model Feedback with Agent Regularized Preferences</a>
               </div>
-            </div>
-          </div>
+              <div class="pub-authors">
+                <span class="me">Anukriti Singh</span>*, A. Bhaskar*, P. Yu, S. Chakraborty, R. Dasyam, A. Bedi, P. Tokekar
+              </div>
+              <div class="pub-venue">
+                <span class="venue-badge">In Submission</span>
+              </div>
+              <div class="pub-links">
+                <a href="https://arxiv.org/pdf/2503.13817" target="_blank" rel="noopener">PDF</a>
+              </div>
+            </td>
+          </tr>
 
-        </div>
-      </section>
+          <!-- Sketch-to-Skill -->
+          <tr class="pub-row highlighted animate-in" id="sketch-paper">
+            <td class="pub-thumb-cell">
+              <div class="pub-img-wrap">
+                <img src="files/sketch2skill.gif" alt="Sketch-to-Skill preview">
+              </div>
+            </td>
+            <td class="pub-info">
+              <div class="pub-title">
+                <a href="https://arxiv.org/abs/2503.11918" target="_blank" rel="noopener">Sketch-to-Skill: Bootstrapping Robot Learning with Human Drawn Trajectory Sketches</a>
+              </div>
+              <div class="pub-authors">
+                P. Yu*, A. Bhaskar*, <span class="me">Anukriti Singh</span>, Z. Mahammad, P. Tokekar
+              </div>
+              <div class="pub-venue">
+                <span class="venue-badge">RSS 2025</span>
+              </div>
+              <div class="pub-links">
+                <a href="https://arxiv.org/abs/2503.11918" target="_blank" rel="noopener">PDF</a>
+              </div>
+            </td>
+          </tr>
 
-      <!-- Research Section -->
-      <section id="research">
-        <h2 class="section-title">
-          Selected Research 
-          <span class="section-subtitle">Sorted by recency</span>
-        </h2>
-        
-        <!-- STeP -->
-        <article class="pub-card highlight animate-on-scroll">
-          <a href="https://arxiv.org/pdf/2607.18580" target="_blank" rel="noopener" class="card-link-overlay" aria-label="View STeP Paper"></a>
-          <div class="pub-media" style="background: transparent; box-shadow: none; border: 1px dashed var(--border-color);">
-            <div style="font-family: var(--font-body); font-size: 0.85rem; color: var(--text-subtle); padding: 1rem; text-align: center;">STeP<br><br>[No Preview]</div>
-          </div>
-          <div class="pub-content">
-            <h3 class="pub-title">
-              STeP: Signal Temporal Logic for Precise Specifications for Action Generation with Vision Language Models
-            </h3>
-            <div class="pub-authors">
-              K. Torshizi*, <span class="author-me">Anukriti Singh</span>*, S. Mathur, P. Tokekar
-            </div>
-            <div class="pub-venue">
-              <span class="featured-badge">In Submission</span> arXiv 2026
-            </div>
-            <div class="pub-links">
-              <a href="https://arxiv.org/pdf/2607.18580" target="_blank" rel="noopener" class="btn-chip">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-                PDF
-              </a>
-            </div>
-          </div>
-        </article>
+          <!-- Navigation -->
+          <tr class="pub-row animate-in">
+            <td class="pub-thumb-cell">
+              <div class="pub-img-wrap">
+                <img src="files/navigation.gif" alt="Navigation preview">
+              </div>
+            </td>
+            <td class="pub-info">
+              <div class="pub-title">
+                <a href="https://arxiv.org/pdf/2310.07021" target="_blank" rel="noopener">Pre-Trained Masked Image Model for Mobile Robot Navigation</a>
+              </div>
+              <div class="pub-authors">
+                V. D. Sharma, <span class="me">Anukriti Singh</span>, P. Tokekar
+              </div>
+              <div class="pub-venue">
+                <em>ICRA</em>, 2024
+              </div>
+              <div class="pub-links">
+                <a href="https://arxiv.org/pdf/2310.07021" target="_blank" rel="noopener">PDF</a>
+              </div>
+            </td>
+          </tr>
 
-        <!-- Afford2Act -->
-        <article class="pub-card highlight animate-on-scroll">
-          <a href="https://arxiv.org/pdf/2510.01433" target="_blank" rel="noopener" class="card-link-overlay" aria-label="View Afford2Act Paper"></a>
-          <div class="pub-media">
-            <img src="files/afford2act_fast.gif" alt="Afford2Act preview" loading="lazy">
-          </div>
-          <div class="pub-content">
-            <h3 class="pub-title">
-              Afford2Act: Affordance-Guided Automatic Keypoint Selection for Generalizable and Lightweight Robotic Manipulation
-            </h3>
-            <div class="pub-authors">
-              <span class="author-me">Anukriti Singh</span>, K. Torshizi, K. Habib, K. Yu, R. Gao, P. Tokekar
-            </div>
-            <div class="pub-venue">
-              <span class="featured-badge">In Submission</span>
-            </div>
-            <div class="pub-links">
-              <a href="https://arxiv.org/pdf/2510.01433" target="_blank" rel="noopener" class="btn-chip">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-                PDF
-              </a>
-            </div>
-          </div>
-        </article>
+          <!-- FLIP-TD -->
+          <tr class="pub-row animate-in">
+            <td class="pub-thumb-cell">
+              <div class="pub-img-wrap">
+                <img src="files/fig_1_1.png" alt="FLIP-TD diagram">
+              </div>
+            </td>
+            <td class="pub-info">
+              <div class="pub-title">
+                <a href="https://openreview.net/forum?id=7c0WHyETaHC" target="_blank" rel="noopener">FLIP-TD: Free Lunch Inpainting on Top-Down Images for Robotic Tasks</a>
+              </div>
+              <div class="pub-authors">
+                <span class="me">Anukriti Singh</span>*, V. D. Sharma*, P. Tokekar
+              </div>
+              <div class="pub-venue">
+                <em>ICRA Workshop</em>, 2023
+              </div>
+              <div class="pub-links">
+                <a href="https://openreview.net/forum?id=7c0WHyETaHC" target="_blank" rel="noopener">PDF</a>
+              </div>
+            </td>
+          </tr>
 
-        <!-- VARP -->
-        <article class="pub-card highlight animate-on-scroll">
-          <a href="https://arxiv.org/pdf/2503.13817" target="_blank" rel="noopener" class="card-link-overlay" aria-label="View VARP Paper"></a>
-          <div class="pub-media">
-            <img src="files/varp.gif" alt="VARP preview" loading="lazy">
-          </div>
-          <div class="pub-content">
-            <h3 class="pub-title">
-              VARP: Reinforcement Learning from Vision-Language Model Feedback with Agent Regularized Preferences
-            </h3>
-            <div class="pub-authors">
-              <span class="author-me">Anukriti Singh</span>*, A. Bhaskar*, P. Yu, S. Chakraborty, R. Dasyam, A. Bedi, P. Tokekar
-            </div>
-            <div class="pub-venue">
-              <span class="featured-badge">In Submission</span>
-            </div>
-            <div class="pub-links">
-              <a href="https://arxiv.org/pdf/2503.13817" target="_blank" rel="noopener" class="btn-chip">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-                PDF
-              </a>
-            </div>
-          </div>
-        </article>
+          <!-- SeMask -->
+          <tr class="pub-row animate-in" id="semask-paper">
+            <td class="pub-thumb-cell">
+              <div class="pub-img-wrap">
+                <img src="files/semask.png" alt="SeMask diagram">
+              </div>
+            </td>
+            <td class="pub-info">
+              <div class="pub-title">
+                <a href="https://arxiv.org/abs/2112.12782" target="_blank" rel="noopener">SeMask: Semantically Masked Transformers for Semantic Segmentation</a>
+              </div>
+              <div class="pub-authors">
+                J. Jain, <span class="me">Anukriti Singh</span>, N. Orlov, Z. Huang, J. Li, S. Walton, H. Shi
+              </div>
+              <div class="pub-venue">
+                <em>ICCV Workshop</em>, 2023
+              </div>
+              <div class="pub-links">
+                <a href="https://arxiv.org/abs/2112.12782" target="_blank" rel="noopener">PDF</a>
+              </div>
+            </td>
+          </tr>
 
-        <!-- Sketch-to-Skill -->
-        <article class="pub-card highlight animate-on-scroll">
-          <!-- Entire card clickable -->
-          <a href="https://arxiv.org/abs/2503.11918" target="_blank" rel="noopener" class="card-link-overlay" aria-label="View Sketch-to-Skill Paper"></a>
-          
-          <div class="pub-media">
-            <img src="files/sketch2skill.gif" alt="Sketch-to-Skill preview" loading="lazy">
-          </div>
-          <div class="pub-content">
-            <h3 class="pub-title">
-              Sketch-to-Skill: Bootstrapping Robot Learning with Human Drawn Trajectory Sketches
-            </h3>
-            <div class="pub-authors">
-              P. Yu*, A. Bhaskar*, <span class="author-me">Anukriti Singh</span>, Z. Mahammad, P. Tokekar
-            </div>
-            <div class="pub-venue">
-              <span class="featured-badge">RSS 2025</span>
-            </div>
-            <div class="pub-links">
-              <a href="https://arxiv.org/abs/2503.11918" target="_blank" rel="noopener" class="btn-chip">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-                PDF
-              </a>
-            </div>
-          </div>
-        </article>
+          <!-- Quantum -->
+          <tr class="pub-row animate-in" id="quantum-paper">
+            <td class="pub-thumb-cell">
+              <div class="pub-img-wrap">
+                <img src="files/fnas-ps.png" alt="Quantum diagram">
+              </div>
+            </td>
+            <td class="pub-info">
+              <div class="pub-title">
+                <a href="https://quantum-journal.org/papers/q-2021-12-06-598/pdf/" target="_blank" rel="noopener">Characterizing Quantum Evolutions via a Recommender System</a>
+              </div>
+              <div class="pub-authors">
+                P. Batra, <span class="me">Anukriti Singh</span>, T. S. Mahesh
+              </div>
+              <div class="pub-venue">
+                <em>Quantum Journal</em>, 2021
+              </div>
+              <div class="pub-links">
+                <a href="https://quantum-journal.org/papers/q-2021-12-06-598/pdf/" target="_blank" rel="noopener">PDF</a>
+              </div>
+            </td>
+          </tr>
 
-        <!-- Navigation -->
-        <article class="pub-card animate-on-scroll">
-          <a href="https://arxiv.org/pdf/2310.07021" target="_blank" rel="noopener" class="card-link-overlay" aria-label="View Navigation Paper"></a>
-          
-          <div class="pub-media">
-            <img src="files/navigation.gif" alt="Navigation preview" loading="lazy">
-          </div>
-          <div class="pub-content">
-            <h3 class="pub-title">
-              Pre-Trained Masked Image Model for Mobile Robot Navigation
-            </h3>
-            <div class="pub-authors">
-              V. D. Sharma, <span class="author-me">Anukriti Singh</span>, P. Tokekar
-            </div>
-            <div class="pub-venue">ICRA 2024</div>
-            <div class="pub-links">
-              <span class="btn-chip">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-                PDF
-              </span>
-            </div>
-          </div>
-        </article>
+        </tbody>
+      </table>
+    </section>
 
-        <!-- FLIP-TD -->
-        <article class="pub-card animate-on-scroll">
-          <a href="https://openreview.net/forum?id=7c0WHyETaHC" target="_blank" rel="noopener" class="card-link-overlay" aria-label="View FLIP-TD Paper"></a>
-          
-          <div class="pub-media">
-            <img src="files/fig_1_1.png" alt="FLIP-TD diagram" loading="lazy">
-          </div>
-          <div class="pub-content">
-            <h3 class="pub-title">
-              FLIP-TD: Free Lunch Inpainting on Top-Down Images for Robotic Tasks
-            </h3>
-            <div class="pub-authors">
-              <span class="author-me">Anukriti Singh</span>*, V. D. Sharma*, P. Tokekar
-            </div>
-            <div class="pub-venue">ICRA Workshop 2023</div>
-            <div class="pub-links">
-              <span class="btn-chip">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-                PDF
-              </span>
-            </div>
-          </div>
-        </article>
+    <!-- Footer -->
+    <div class="footer">
+      <a href="https://github.com/jonbarron/jonbarron.github.io" target="_blank" rel="noopener">template inspiration</a>
+      · with a 🤖 twist
+    </div>
 
-        <!-- SeMask -->
-        <article class="pub-card animate-on-scroll">
-          <a href="https://arxiv.org/abs/2112.12782" target="_blank" rel="noopener" class="card-link-overlay" aria-label="View SeMask Paper"></a>
-          
-          <div class="pub-media">
-            <img src="files/semask.png" alt="SeMask diagram" loading="lazy">
-          </div>
-          <div class="pub-content">
-            <h3 class="pub-title">
-              SeMask: Semantically Masked Transformers for Semantic Segmentation
-            </h3>
-            <div class="pub-authors">
-              J. Jain, <span class="author-me">Anukriti Singh</span>, N. Orlov, Z. Huang, J. Li, S. Walton, H. Shi
-            </div>
-            <div class="pub-venue">ICCV Workshop 2023</div>
-            <div class="pub-links">
-              <span class="btn-chip">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-                PDF
-              </span>
-            </div>
-          </div>
-        </article>
+  </div><!-- .shell -->
 
-        <!-- Quantum -->
-        <article class="pub-card animate-on-scroll">
-          <a href="https://quantum-journal.org/papers/q-2021-12-06-598/pdf/" target="_blank" rel="noopener" class="card-link-overlay" aria-label="View Quantum Paper"></a>
-          
-          <div class="pub-media">
-            <img src="files/fnas-ps.png" alt="Quantum diagram" loading="lazy">
-          </div>
-          <div class="pub-content">
-            <h3 class="pub-title">
-              Characterizing Quantum Evolutions via a Recommender System
-            </h3>
-            <div class="pub-authors">
-              P. Batra, <span class="author-me">Anukriti Singh</span>, T. S. Mahesh
-            </div>
-            <div class="pub-venue">Quantum Journal 2021</div>
-            <div class="pub-links">
-              <span class="btn-chip">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-                PDF
-              </span>
-            </div>
-          </div>
-        </article>
-
-      </section>
-
-      <!-- News Section -->
-      <section id="news">
-        <h2 class="section-title">Timeline</h2>
-        
-        <div class="news-container">
-
-          <div class="news-item animate-on-scroll">
-            <span class="news-date">May 2026</span>
-            <div class="news-content">
-              Moved to Paris for the summer to work as a Research Intern at <strong>Enchanted Tools</strong>!
-            </div>
-          </div>
-          
-          <div class="news-item animate-on-scroll">
-            <span class="news-date">July 2025</span>
-            <div class="news-content">
-              First time volunteering experience — <a href="https://roboticsconference.org/" target="_blank" rel="noopener">RSS 2025</a>
-            </div>
-          </div>
-
-          <div class="news-item animate-on-scroll">
-            <span class="news-date">March 2025</span>
-            <div class="news-content">
-              Awarded <strong>NSF I-Corps 2025 grant</strong> for customer discovery in tech innovation
-            </div>
-          </div>
-
-          <div class="news-item animate-on-scroll">
-            <span class="news-date">Jan 2025</span>
-            <div class="news-content">
-              <strong>Sketch-to-Skill</strong> accepted to <a href="https://roboticsconference.org/" target="_blank" rel="noopener">RSS 2025</a>!
-            </div>
-          </div>
-
-          <div class="news-item animate-on-scroll">
-            <span class="news-date">Jan 2025</span>
-            <div class="news-content">
-              Starting my Ph.D. at <a href="https://umd.edu/" target="_blank" rel="noopener">UMD College Park</a> with <a href="https://raaslab.org/" target="_blank" rel="noopener">Prof. Pratap Tokekar</a>!
-            </div>
-          </div>
-
-          <div class="news-item animate-on-scroll">
-            <span class="news-date">March 2024</span>
-            <div class="news-content">
-              Won the <strong>ICRA 2024 Travel Grant</strong> to attend <a href="https://2024.ieee-icra.org/" target="_blank" rel="noopener">ICRA 2024</a> in Yokohama, Japan
-            </div>
-          </div>
-
-          <div class="news-item animate-on-scroll">
-            <span class="news-date">Feb 2024</span>
-            <div class="news-content">
-              Joining <a href="https://www.bell-labs.com/" target="_blank" rel="noopener">Bell Labs</a> as a Spring co-op research intern!
-            </div>
-          </div>
-
-          <div class="news-item animate-on-scroll">
-            <span class="news-date">Jan 2024</span>
-            <div class="news-content">
-              <a href="https://arxiv.org/abs/2310.07021" target="_blank" rel="noopener">Pre-Trained Masked Image Model for Mobile Robot Navigation</a> is accepted to <strong>ICRA 2024</strong>!
-            </div>
-          </div>
-
-          <div class="news-item animate-on-scroll">
-            <span class="news-date">Aug 2023</span>
-            <div class="news-content">
-              <a href="https://github.com/Picsart-AI-Research/SeMask-Segmentation" target="_blank" rel="noopener">SeMask</a> is accepted to <strong>NIVT Workshop at ICCV 2023</strong>!
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-    </main>
-  </div>
-
-  <!-- Interactive Scripts -->
+  <!-- ================================================================ -->
+  <!-- Scripts -->
+  <!-- ================================================================ -->
   <script>
-    // 1. Theme Toggle Logic
-    const toggleBtn = document.getElementById('theme-toggle');
-    const themeIcon = document.getElementById('theme-icon');
-    const themeText = document.getElementById('theme-text');
+    // ---- Theme toggle ----
+    const themeCheck = document.getElementById('theme-check');
+    const themeLabel = document.getElementById('theme-label');
     const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
     const savedTheme = localStorage.getItem('theme');
     let currentTheme = savedTheme || (prefersDark ? 'dark' : 'light');
 
-    const applyTheme = (theme) => {
+    function applyTheme(theme) {
       document.documentElement.setAttribute('data-theme', theme);
       localStorage.setItem('theme', theme);
-      if(theme === 'dark') {
-        themeIcon.textContent = '☀';
-        themeText.textContent = 'Light mode';
-      } else {
-        themeIcon.textContent = '☾';
-        themeText.textContent = 'Dark mode';
-      }
-    };
-
+      themeCheck.checked = (theme === 'dark');
+      themeLabel.textContent = (theme === 'dark') ? 'Light' : 'Dark';
+    }
     applyTheme(currentTheme);
 
-    toggleBtn.addEventListener('click', () => {
-      currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    themeCheck.addEventListener('change', () => {
+      currentTheme = themeCheck.checked ? 'dark' : 'light';
       applyTheme(currentTheme);
     });
 
-    // 2. Intersection Observer for Fade-in Animations
-    const observerOptions = {
-      root: null,
-      rootMargin: '0px',
-      threshold: 0.15
-    };
+    // ---- Show more / less toggles ----
+    function toggleSection(id, btn) {
+      const el = document.getElementById(id);
+      const isExpanded = el.classList.toggle('expanded');
+      btn.classList.toggle('active', isExpanded);
+      btn.innerHTML = isExpanded
+        ? '<span class="arrow">▼</span> show less'
+        : '<span class="arrow">▼</span> show more';
 
-    const observer = new IntersectionObserver((entries, observer) => {
+      // Trigger fade-in for newly visible items
+      if (isExpanded) {
+        el.querySelectorAll('.animate-in').forEach(item => {
+          observer.observe(item);
+        });
+      }
+    }
+
+    // ---- Fade-in on scroll ----
+    const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
-          observer.unobserve(entry.target); // Animate only once
+          observer.unobserve(entry.target);
         }
       });
-    }, observerOptions);
+    }, { threshold: 0.1 });
 
-    document.querySelectorAll('.animate-on-scroll').forEach(element => {
-      observer.observe(element);
-    });
+    document.querySelectorAll('.animate-in').forEach(el => observer.observe(el));
 
-    // 3. Scroll Spy & Smooth Scroll Logic for Sidebar Navigation
-    const navLinks = document.querySelectorAll('.nav-link');
+    // ---- Side Navigation Scroll-Spy ----
     const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.side-nav-link');
 
-    // Smooth Scroll
+    const navObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute('id');
+          navLinks.forEach(link => {
+            if (link.getAttribute('data-target') === id) {
+              link.classList.add('active');
+            } else {
+              link.classList.remove('active');
+            }
+          });
+        }
+      });
+    }, { rootMargin: '-20% 0px -60% 0px', threshold: 0 });
+
+    sections.forEach(sec => navObserver.observe(sec));
+
+    // Smooth scroll on side nav click
     navLinks.forEach(link => {
       link.addEventListener('click', (e) => {
         e.preventDefault();
@@ -708,31 +543,193 @@
       });
     });
 
-    // Scroll Spy Observer
-    const spyOptions = {
-      root: null,
-      rootMargin: '-20% 0px -60% 0px', // Trigger when section is in middle viewport
-      threshold: 0
-    };
+    // ================================================================
+    // Articulated Robot Manipulator Cursor (Fixed Stable Base, Mechanical Arm)
+    // ================================================================
+    (function() {
+      if (window.matchMedia('(hover: none)').matches) return;
 
-    const spyObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const id = entry.target.getAttribute('id');
-          navLinks.forEach(link => {
-            if (link.getAttribute('href') === `#${id}`) {
-              link.classList.add('active');
-            } else {
-              link.classList.remove('active');
-            }
-          });
-        }
+      const dot = document.getElementById('cursor-dot');
+      const link1Chassis = document.getElementById('arm-link1-chassis');
+      const link1Core = document.getElementById('arm-link1-core');
+      const link2Chassis = document.getElementById('arm-link2-chassis');
+      const link2Core = document.getElementById('arm-link2-core');
+
+      const baseOuter = document.getElementById('arm-base-outer');
+      const baseInner = document.getElementById('arm-base-inner');
+      const elbowOuter = document.getElementById('arm-elbow-outer');
+      const elbowInner = document.getElementById('arm-elbow-inner');
+      const wristOuter = document.getElementById('arm-wrist-outer');
+
+      const gripperL = document.getElementById('gripper-l');
+      const gripperR = document.getElementById('gripper-r');
+      const padL = document.getElementById('gripper-l-pad');
+      const padR = document.getElementById('gripper-r-pad');
+
+      const L1 = 34; // Upper arm length
+      const L2 = 28; // Forearm length
+      const GRIPPER_LEN = 11;
+
+      // Mouse coords
+      let targetX = window.innerWidth / 2;
+      let targetY = window.innerHeight / 2;
+      let currentX = targetX;
+      let currentY = targetY;
+
+      // Interaction state (clamping gripper)
+      let isClamping = false;
+      let gripSpread = 0.42; // default jaw spread in radians
+      let currentGripSpread = gripSpread;
+
+      // Fixed base offset: arm is always anchored relative to the cursor (bottom-left offset)
+      // This PREVENTS ANY ROLLING or spinning around the cursor
+      const BASE_DX = -36;
+      const BASE_DY = 38;
+
+      document.addEventListener('mousemove', (e) => {
+        targetX = e.clientX;
+        targetY = e.clientY;
       });
-    }, spyOptions);
 
-    sections.forEach(section => {
-      spyObserver.observe(section);
-    });
+      document.addEventListener('mousedown', () => {
+        isClamping = true;
+        dot.classList.add('active');
+      });
+
+      document.addEventListener('mouseup', () => {
+        isClamping = false;
+        dot.classList.remove('active');
+      });
+
+      // Hover on interactive elements slightly clamps the gripper
+      document.querySelectorAll('a, button, input, label').forEach(el => {
+        el.addEventListener('mouseenter', () => { isClamping = true; });
+        el.addEventListener('mouseleave', () => { isClamping = false; });
+      });
+
+      // 2-link analytical IK solver with fixed elbow orientation
+      function solvePlanarIK(bx, by, tx, ty) {
+        let dx = tx - bx;
+        let dy = ty - by;
+        let d = Math.sqrt(dx * dx + dy * dy);
+
+        const maxReach = L1 + L2 - 0.5;
+        const minReach = Math.abs(L1 - L2) + 0.5;
+
+        if (d > maxReach) {
+          dx = (dx / d) * maxReach;
+          dy = (dy / d) * maxReach;
+          d = maxReach;
+        } else if (d < minReach) {
+          dx = (dx / d) * minReach;
+          dy = (dy / d) * minReach;
+          d = minReach;
+        }
+
+        // Law of Cosines for Elbow (fixed positive branch: elbow always arches outward)
+        const cosElbow = (d * d - L1 * L1 - L2 * L2) / (2 * L1 * L2);
+        const clampedCosElbow = Math.max(-1, Math.min(1, cosElbow));
+        const elbowAngle = Math.acos(clampedCosElbow);
+
+        const angleToTarget = Math.atan2(dy, dx);
+        const cosShoulder = (L1 * L1 + d * d - L2 * L2) / (2 * L1 * d);
+        const clampedCosShoulder = Math.max(-1, Math.min(1, cosShoulder));
+        const shoulderAngle = angleToTarget - Math.acos(clampedCosShoulder);
+
+        const elbowX = bx + L1 * Math.cos(shoulderAngle);
+        const elbowY = by + L1 * Math.sin(shoulderAngle);
+
+        const wristAngle = shoulderAngle + elbowAngle;
+        const wristX = elbowX + L2 * Math.cos(wristAngle);
+        const wristY = elbowY + L2 * Math.sin(wristAngle);
+
+        return { elbowX, elbowY, wristX, wristY, wristAngle };
+      }
+
+      function updateArm() {
+        // Smooth target tracking
+        currentX += (targetX - currentX) * 0.35;
+        currentY += (targetY - currentY) * 0.35;
+
+        // Grip animation
+        const targetSpread = isClamping ? 0.12 : 0.42;
+        currentGripSpread += (targetSpread - currentGripSpread) * 0.25;
+
+        // Fixed base position relative to cursor
+        const bx = currentX + BASE_DX;
+        const by = currentY + BASE_DY;
+
+        // Solve IK directly towards current pointer
+        const ik = solvePlanarIK(bx, by, currentX, currentY);
+
+        // Update Link 1 (Upper arm: double line aesthetic)
+        link1Chassis.setAttribute('x1', bx);
+        link1Chassis.setAttribute('y1', by);
+        link1Chassis.setAttribute('x2', ik.elbowX);
+        link1Chassis.setAttribute('y2', ik.elbowY);
+
+        link1Core.setAttribute('x1', bx);
+        link1Core.setAttribute('y1', by);
+        link1Core.setAttribute('x2', ik.elbowX);
+        link1Core.setAttribute('y2', ik.elbowY);
+
+        // Update Link 2 (Forearm)
+        link2Chassis.setAttribute('x1', ik.elbowX);
+        link2Chassis.setAttribute('y1', ik.elbowY);
+        link2Chassis.setAttribute('x2', ik.wristX);
+        link2Chassis.setAttribute('y2', ik.wristY);
+
+        link2Core.setAttribute('x1', ik.elbowX);
+        link2Core.setAttribute('y1', ik.elbowY);
+        link2Core.setAttribute('x2', ik.wristX);
+        link2Core.setAttribute('y2', ik.wristY);
+
+        // Update Joints
+        baseOuter.setAttribute('cx', bx);
+        baseOuter.setAttribute('cy', by);
+        baseInner.setAttribute('cx', bx);
+        baseInner.setAttribute('cy', by);
+
+        elbowOuter.setAttribute('cx', ik.elbowX);
+        elbowOuter.setAttribute('cy', ik.elbowY);
+        elbowInner.setAttribute('cx', ik.elbowX);
+        elbowInner.setAttribute('cy', ik.elbowY);
+
+        wristOuter.setAttribute('cx', ik.wristX);
+        wristOuter.setAttribute('cy', ik.wristY);
+
+        // Calculate parallel gripper jaws
+        const gAngle = ik.wristAngle;
+        const glX = ik.wristX + GRIPPER_LEN * Math.cos(gAngle - currentGripSpread);
+        const glY = ik.wristY + GRIPPER_LEN * Math.sin(gAngle - currentGripSpread);
+        const grX = ik.wristX + GRIPPER_LEN * Math.cos(gAngle + currentGripSpread);
+        const grY = ik.wristY + GRIPPER_LEN * Math.sin(gAngle + currentGripSpread);
+
+        gripperL.setAttribute('x1', ik.wristX);
+        gripperL.setAttribute('y1', ik.wristY);
+        gripperL.setAttribute('x2', glX);
+        gripperL.setAttribute('y2', glY);
+
+        gripperR.setAttribute('x1', ik.wristX);
+        gripperR.setAttribute('y1', ik.wristY);
+        gripperR.setAttribute('x2', grX);
+        gripperR.setAttribute('y2', grY);
+
+        padL.setAttribute('cx', glX);
+        padL.setAttribute('cy', glY);
+        padR.setAttribute('cx', grX);
+        padR.setAttribute('cy', grY);
+
+        // Position precision target dot
+        dot.style.left = targetX + 'px';
+        dot.style.top = targetY + 'px';
+
+        requestAnimationFrame(updateArm);
+      }
+
+      updateArm();
+    })();
   </script>
+
 </body>
 </html>
