@@ -2,7 +2,7 @@
    Anukriti Singh — Academic Site (Barron-style, single column)
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
 
 :root {
   --bg: #fbfaf8;
@@ -24,7 +24,7 @@
   --shadow-nav: 0 8px 30px rgba(0,0,0,0.06);
 
   --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-heading: 'Kalam', cursive;
 
   --radius: 8px;
   color-scheme: light;
@@ -51,10 +51,18 @@
   color-scheme: dark;
 }
 
-/* ---- Reset ---- */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { scroll-behavior: smooth; }
+/* ---- Reset ---- */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   font-family: var(--font-body);
@@ -67,25 +75,32 @@ body {
   position: relative;
 }
 
+
 /* ---- Links ---- */
+
 a {
   color: var(--accent);
   text-decoration: none;
   transition: color 0.2s ease;
 }
+
 a:hover {
   text-decoration: underline;
   text-underline-offset: 3px;
 }
 
+
 /* ---- Shell (centered column) ---- */
+
 .shell {
   width: min(800px, calc(100vw - 40px));
   margin: 0 auto;
   padding: 48px 0 64px;
 }
 
+
 /* ---- Floating Side Navigation ---- */
+
 .side-nav {
   position: fixed;
   right: 28px;
@@ -130,6 +145,7 @@ a:hover {
   color: var(--ink);
   background: var(--accent-bg);
 }
+
 .side-nav-link:hover .side-nav-dot {
   background: var(--accent);
   transform: scale(1.3);
@@ -139,6 +155,7 @@ a:hover {
   color: var(--ink);
   background: var(--accent-bg);
 }
+
 .side-nav-link.active .side-nav-dot {
   background: var(--accent);
   width: 8px;
@@ -146,7 +163,9 @@ a:hover {
   box-shadow: 0 0 0 3px var(--accent-bg);
 }
 
+
 /* ---- Top bar ---- */
+
 .topbar {
   display: flex;
   align-items: center;
@@ -157,13 +176,17 @@ a:hover {
 .brand {
   font-family: var(--font-heading);
   font-size: 1.6rem;
-  font-weight: 500;
-  font-style: italic;
+  font-weight: 700;
+  font-style: normal;
   color: var(--ink);
   text-decoration: none;
   letter-spacing: -0.01em;
 }
-.brand:hover { text-decoration: none; color: var(--ink); }
+
+.brand:hover {
+  text-decoration: none;
+  color: var(--ink);
+}
 
 .topbar-right {
   display: flex;
@@ -171,7 +194,9 @@ a:hover {
   gap: 16px;
 }
 
+
 /* ---- Theme toggle (pill) ---- */
+
 .toggle {
   position: relative;
   display: inline-flex;
@@ -185,8 +210,17 @@ a:hover {
   transition: border-color 0.2s;
   flex-shrink: 0;
 }
-.toggle:hover { border-color: var(--accent); }
-.toggle input { position: absolute; opacity: 0; pointer-events: none; }
+
+.toggle:hover {
+  border-color: var(--accent);
+}
+
+.toggle input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
 .knob {
   width: 14px;
   height: 14px;
@@ -196,9 +230,11 @@ a:hover {
   transform: translateX(0);
   transition: transform 0.2s ease;
 }
+
 .toggle input:checked + .knob {
   transform: translateX(19px);
 }
+
 .toggle-label {
   font-size: 0.78rem;
   color: var(--subtle);
@@ -206,7 +242,9 @@ a:hover {
   user-select: none;
 }
 
+
 /* ---- Intro (photo + bio) ---- */
+
 .intro {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 200px;
@@ -222,10 +260,12 @@ a:hover {
   font-size: 0.95rem;
   line-height: 1.65;
 }
+
 .intro-text strong {
   color: var(--ink);
   font-weight: 600;
 }
+
 .intro-text a {
   color: var(--accent);
   font-weight: 500;
@@ -236,10 +276,12 @@ a:hover {
   font-size: 0.9rem;
   color: var(--muted);
 }
+
 .intro-links a {
   color: var(--accent);
   font-weight: 500;
 }
+
 .intro-links .sep {
   margin: 0 6px;
   color: var(--faint);
@@ -253,14 +295,19 @@ a:hover {
   box-shadow: var(--shadow);
   transition: transform 0.4s ease;
 }
-.portrait:hover { transform: scale(1.02); }
+
+.portrait:hover {
+  transform: scale(1.02);
+}
+
 
 /* ---- Section headings ---- */
+
 h2 {
   font-family: var(--font-heading);
   font-size: 1.5rem;
-  font-weight: 500;
-  font-style: italic;
+  font-weight: 700;
+  font-style: normal;
   margin: 44px 0 18px;
   padding-bottom: 8px;
   border-bottom: 1px solid var(--faint);
@@ -274,10 +321,13 @@ h2 {
   font-size: 0.85rem;
 }
 
+
 /* ---- News items ---- */
+
 .news-list {
   list-style: none;
 }
+
 .news-list li {
   display: grid;
   grid-template-columns: 90px 1fr;
@@ -288,21 +338,30 @@ h2 {
   color: var(--muted);
   line-height: 1.55;
 }
+
 .news-list li:last-child {
   border-bottom: 1px solid var(--faint);
 }
+
 .news-date {
   font-weight: 600;
   color: var(--accent);
   font-size: 0.82rem;
   padding-top: 1px;
 }
-.news-list strong { color: var(--ink); font-weight: 600; }
+
+.news-list strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
 
 /* ---- Experience items ---- */
+
 .exp-list {
   list-style: none;
 }
+
 .exp-list li {
   display: grid;
   grid-template-columns: 130px 1fr;
@@ -313,43 +372,52 @@ h2 {
   color: var(--muted);
   line-height: 1.55;
 }
+
 .exp-list li:last-child {
   border-bottom: 1px solid var(--faint);
 }
+
 .exp-meta {
   display: flex;
   flex-direction: column;
   gap: 2px;
 }
+
 .exp-meta .dates {
   font-weight: 600;
   color: var(--accent);
   font-size: 0.82rem;
 }
+
 .exp-meta .loc {
   font-size: 0.78rem;
   color: var(--subtle);
 }
+
 .exp-body .role {
   font-weight: 600;
   color: var(--ink);
   font-size: 0.95rem;
 }
+
 .exp-body .org {
   color: var(--accent);
   font-weight: 500;
 }
+
 .exp-body .desc {
   margin-top: 4px;
   font-size: 0.88rem;
   color: var(--muted);
 }
+
 .exp-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 5px;
   margin-top: 6px;
 }
+
 .exp-tag {
   font-size: 0.7rem;
   background: var(--accent-bg);
@@ -358,6 +426,7 @@ h2 {
   border-radius: 999px;
   font-weight: 600;
 }
+
 .exp-result {
   margin-top: 4px;
   font-size: 0.82rem;
@@ -365,17 +434,24 @@ h2 {
   color: var(--highlight);
   display: inline-block;
 }
-.exp-result:hover { color: var(--ink); }
+
+.exp-result:hover {
+  color: var(--ink);
+}
+
 
 /* ---- Collapsible toggle ---- */
+
 .collapsible-items {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.4s ease;
 }
+
 .collapsible-items.expanded {
   max-height: 2000px;
 }
+
 .toggle-btn {
   display: inline-flex;
   align-items: center;
@@ -392,20 +468,25 @@ h2 {
   cursor: pointer;
   transition: all 0.2s ease;
 }
+
 .toggle-btn:hover {
   background: var(--accent);
   color: #fff;
 }
+
 .toggle-btn .arrow {
   display: inline-block;
   transition: transform 0.3s ease;
   font-size: 0.7rem;
 }
+
 .toggle-btn.active .arrow {
   transform: rotate(180deg);
 }
 
+
 /* ---- Research / Paper rows (Barron-style) ---- */
+
 .pub-table {
   width: 100%;
   border-spacing: 0 8px;
@@ -427,6 +508,7 @@ h2 {
 .pub-row.highlighted td {
   background: var(--highlight-row);
 }
+
 .pub-row.highlighted:hover td {
   background: var(--highlight-bg);
 }
@@ -436,7 +518,9 @@ h2 {
   padding-right: 20px !important;
 }
 
+
 /* Hover-to-reveal image container (Barron's technique) */
+
 .pub-img-wrap {
   position: relative;
   width: 100%;
@@ -446,6 +530,7 @@ h2 {
   background: var(--paper);
   box-shadow: var(--shadow);
 }
+
 .pub-img-wrap img,
 .pub-img-wrap video {
   display: block;
@@ -454,17 +539,21 @@ h2 {
   object-fit: cover;
   transition: transform 0.3s ease;
 }
+
 .pub-img-wrap .hover-media {
   position: absolute;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   opacity: 0;
   transition: opacity 0.35s ease;
 }
+
 .pub-row:hover .pub-img-wrap .hover-media {
   opacity: 1;
 }
+
 .pub-row:hover .pub-img-wrap img {
   transform: scale(1.03);
 }
@@ -481,10 +570,12 @@ h2 {
   line-height: 1.4;
   margin-bottom: 6px;
 }
+
 .pub-title a {
   color: var(--ink);
   text-decoration: none;
 }
+
 .pub-title a:hover {
   color: var(--highlight);
 }
@@ -495,6 +586,7 @@ h2 {
   line-height: 1.5;
   margin-bottom: 4px;
 }
+
 .pub-authors .me {
   font-weight: 700;
   color: var(--ink);
@@ -505,6 +597,7 @@ h2 {
   color: var(--subtle);
   margin-bottom: 6px;
 }
+
 .pub-venue em {
   font-style: normal;
   font-weight: 600;
@@ -526,11 +619,13 @@ h2 {
 .pub-links {
   font-size: 0.82rem;
 }
+
 .pub-links a {
   color: var(--accent);
   font-weight: 500;
   margin-right: 4px;
 }
+
 .pub-links .link-sep {
   color: var(--faint);
   margin: 0 2px;
@@ -543,7 +638,9 @@ h2 {
   line-height: 1.5;
 }
 
+
 /* ---- Footer ---- */
+
 .footer {
   margin-top: 48px;
   padding-top: 20px;
@@ -552,22 +649,32 @@ h2 {
   font-size: 0.78rem;
   color: var(--subtle);
 }
-.footer a { color: var(--subtle); }
+
+.footer a {
+  color: var(--subtle);
+}
+
 
 /* ---- Fade-in animation ---- */
+
 .animate-in {
   opacity: 0;
   transform: translateY(12px);
-  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
+
 .animate-in.visible {
   opacity: 1;
   transform: translateY(0);
 }
 
+
 /* ==========================================================================
    Articulated Robot Manipulator Cursor (Non-rolling, Mechanical Arm)
    ========================================================================== */
+
 .manipulator-svg {
   pointer-events: none;
   position: fixed;
@@ -579,7 +686,9 @@ h2 {
   overflow: visible;
 }
 
+
 /* Outer chassis line / beam */
+
 .manipulator-svg .arm-chassis {
   stroke: var(--accent);
   stroke-width: 5;
@@ -588,7 +697,9 @@ h2 {
   opacity: 0.85;
 }
 
+
 /* Inner mechanical groove line */
+
 .manipulator-svg .arm-core {
   stroke: var(--bg);
   stroke-width: 1.8;
@@ -596,7 +707,9 @@ h2 {
   transition: stroke 0.3s ease;
 }
 
+
 /* Actuator joint cylinders */
+
 .manipulator-svg .joint-outer {
   fill: var(--accent);
   stroke: var(--paper);
@@ -622,7 +735,9 @@ h2 {
   transition: fill 0.3s ease;
 }
 
+
 /* Precise Target Dot */
+
 .cursor-dot {
   pointer-events: none;
   position: fixed;
@@ -641,7 +756,9 @@ h2 {
   background: var(--accent);
 }
 
+
 /* ---- Responsive ---- */
+
 @media (max-width: 1080px) {
   .side-nav {
     display: none;
@@ -649,36 +766,63 @@ h2 {
 }
 
 @media (max-width: 700px) {
-  .shell { padding: 28px 0 40px; }
+
+  .shell {
+    padding: 28px 0 40px;
+  }
 
   .intro {
     grid-template-columns: 1fr;
     gap: 20px;
   }
+
   .portrait {
     width: 120px;
     order: -1;
   }
 
-  .pub-table, .pub-table tbody, .pub-table tr, .pub-table td {
+  .pub-table,
+  .pub-table tbody,
+  .pub-table tr,
+  .pub-table td {
     display: block;
     width: 100%;
   }
+
   .pub-thumb-cell {
     width: 100%;
     padding-right: 14px !important;
     margin-bottom: 10px;
   }
-  .pub-img-wrap { max-width: 280px; }
 
-  .news-list li { grid-template-columns: 1fr; gap: 4px; }
-  .exp-list li { grid-template-columns: 1fr; gap: 6px; }
+  .pub-img-wrap {
+    max-width: 280px;
+  }
 
-  h2 { font-size: 1.3rem; }
+  .news-list li {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+  .exp-list li {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+  }
 }
 
+
 /* Disable custom cursor on touch devices */
+
 @media (hover: none) {
-  .manipulator-svg { display: none; }
-  .cursor-dot { display: none; }
+  .manipulator-svg {
+    display: none;
+  }
+
+  .cursor-dot {
+    display: none;
+  }
 }
